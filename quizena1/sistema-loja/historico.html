@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Controle de Estoque</title>
+  </head>
+  <body>
+    <div class="more-header">
+      <img src="./img/header.jpg" alt="JomeXbox" />
+      <p>JomeXbox</p>
+    </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="./index.html">Página Inicial</a></li>
+        <li><a href="./ctrl-estoque.html">Controle de Estoque</a></li>
+        <li><a href="./add-produto.html">Adicionar Produto</a></li>
+        <li><a href="./funcionarios.html">Funcionários</a></li>
+        <li><a href="./venda.html">Vendas</a></li>
+        <li><a href="./historico.html">Histórico</a></li>
+      </ul>
+    </div>
+
+    <h2 class="control-p">Histórico de Vendas</h2>
+
+    <div class="search">
+      <input
+        type="date"
+        id="data"
+        name="data"
+        placeholder="Procura pela data de venda"
+      />
+    </div>
+
+    <div class="form-add search">
+      <button type="submit">Pesquisar</button>
+    </div>
+
+    <div id="table-container-sales">
+      <table>
+        <tr class="thead">
+          <th>Data de Venda</th>
+          <th>Horário</th>
+          <th>Funcionário</th>
+          <th>Valor da Compra (R$)</th>
+          <th>Forma de Pagamento</th>
+        </tr>
+
+        <tr>
+          <td>12/02/2021</td>
+          <td>15:08</td>
+          <td>Anabela Adão Rebouças</td>
+          <td class="price">R$ 189,91</td>
+          <td>Dinheiro</td>
+        </tr>
+
+        <tr>
+          <td>12/02/2021</td>
+          <td>14:20</td>
+          <td>Elisa Ninharelhos Sobreira</td>
+          <td class="price">R$ 18,91</td>
+          <td>Dinheiro</td>
+        </tr>
+
+        <tr>
+          <td>13/02/2021</td>
+          <td>14:30</td>
+          <td>Elisa Ninharelhos Sobreira</td>
+          <td class="price">R$ 237,41</td>
+          <td>Cartão à Vista</td>
+        </tr>
+
+        <tr>
+          <td>14/02/2021</td>
+          <td>10:11</td>
+          <td>Anabela Adão Rebouças</td>
+          <td class="price">R$ 18,91</td>
+          <td>Dinheiro</td>
+        </tr>
+
+        <tr>
+          <td>14/02/2021</td>
+          <td>09:46</td>
+          <td>Inácio França Reino</td>
+          <td class="price">R$ 237,41</td>
+          <td>Dinheiro</td>
+        </tr>
+        <tr>
+          <td>14/02/2021</td>
+          <td>15:38</td>
+          <td>Inácio França Reino</td>
+          <td class="price">R$ 712,23</td>
+          <td>Cartão à Vista</td>
+        </tr>
+        <tr>
+          <td>15/02/2021</td>
+          <td>11:42</td>
+          <td>Anabela Adão Rebouças</td>
+          <td class="price">R$ 75,64</td>
+          <td>Cartão Parcelado</td>
+        </tr>
+        <!-- Crie mais uma linha desta tabela abaixo \/ -->
+
+        <tr>
+          <td>20/02/2021</td>
+          <td>09:04</td>
+          <td>Anabela Adão Rebouças</td>
+          <td class="price">R$ 1.187,01</td>
+          <td>Cartão à Vista</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-a">
+      <p>Siga-nos nas redes sociais!</p>
+
+      <div class="icons">
+        <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+        <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+        <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+      </div>
+    </div>
+  </body>
+</html>
