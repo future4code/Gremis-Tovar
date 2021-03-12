@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Controle de Estoque</title>
+  </head>
+  <body>
+    <div class="more-header">
+      <img src="./img/header.jpg" alt="JomeXbox" />
+      <p>JomeXbox</p>
+    </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="./index.html">Página Inicial</a></li>
+        <li><a href="./ctrl-estoque.html">Controle de Estoque</a></li>
+        <li><a href="./add-produto.html">Adicionar Produto</a></li>
+        <li><a href="./funcionarios.html">Funcionários</a></li>
+        <li><a href="./venda.html">Vendas</a></li>
+        <li><a href="./historico.html">Histórico</a></li>
+      </ul>
+    </div>
+
+    <h2 class="control-p">Produto Vendido</h2>
+
+    <form action="">
+      <div>
+        <label for="descricao">Data de Venda: </label>
+        <input type="date" id="data" name="data" />
+      </div>
+      <div>
+        <label for="descricao">Descrição do produto: </label>
+        <input type="text" id="description" name="descrição" />
+      </div>
+
+      <div>
+        <label>Quantidade: </label>
+        <input type="number" id="quantity" name="quantity" min="1" max="200" />
+      </div>
+
+      <div>
+        <label for="preco">Preço por Unidade (em R$): </label>
+        <input
+          type="number"
+          id="price"
+          name="preço"
+          min="0"
+          step="0.01"
+          value="0.00"
+        />
+      </div>
+
+      <div>
+        <label for="preco">Preço Total (em R$): </label>
+        <input
+          type="number"
+          id="price"
+          name="preço"
+          min="0"
+          step="0.01"
+          value="0.00"
+        />
+      </div>
+
+      <div>
+        <label for="link-foto">Forma de Pagamento: </label>
+        <select>
+          <option>Dinheiro</option>
+          <option>Cartão à Vista</option>
+          <option>Cartão Parcelado</option>
+        </select>
+      </div>
+
+      <div class="form-add">
+        <button type="submit">Adicionar</button>
+      </div>
+    </form>
+
+    <div id="table-container-sales">
+      <table>
+        <tr class="thead">
+          <th>Data de Venda</th>
+          <th>Descrição do Produto</th>
+          <th>Quantidade</th>
+          <th>Preço por Unidade (R$)</th>
+          <th>Preço Total (R$)</th>
+          <th>Forma de Pagamento</th>
+          <th>Apagar ou Editar Produto</th>
+        </tr>
+
+        <tr>
+          <td>01/02/2021</td>
+          <td>Game Titanfall</td>
+          <td>04</td>
+          <td class="price">R$ 18,91</td>
+          <td class="price">R$ 75,64</td>
+          <td>Cartão à Vista</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+        </tr>
+
+        <tr>
+          <td>02/03/2021</td>
+          <td>Game Mass Effect Andromeda</td>
+          <td>10</td>
+          <td class="price">R$ 49,90</td>
+          <td class="price">R$ 499,00</td>
+          <td>Cartão Parcelado</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>04/03/2021</td>
+          <td>Game Shadow Of The Tomb Raider</td>
+          <td>05</td>
+          <td class="price">R$ 237,41</td>
+          <td class="price">R$ 1.187,01</td>
+          <td>Cartão Parcelado</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>04/02/2021</td>
+          <td>
+            Game Tom Clancy´S Rainbow <br />
+            Six Siege Edição Avançada
+          </td>
+          <td>02</td>
+          <td class="price">R$ 189,91</td>
+          <td class="price">R$ 379,82</td>
+          <td>Dinheiro</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>05/03/2021</td>
+          <td>Game Shadow Of The Tomb Raider</td>
+          <td>01</td>
+          <td class="price">R$ 237,41</td>
+          <td class="price">R$ 237,41</td>
+          <td>Dinheiro</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+        <tr>
+          <td>06/03/2021</td>
+          <td>Game Red Dead Redemption</td>
+          <td>03</td>
+          <td class="price">R$ 237,41</td>
+          <td class="price">R$ 712,23</td>
+          <td>Cartão à Vista</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+        <tr>
+          <td>06/03/2021</td>
+          <td>Game Titanfall</td>
+          <td>01</td>
+          <td class="price">R$ 18,91</td>
+          <td class="price">R$ 18,91</td>
+          <td>Dinheiro</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>07/03/2021</td>
+          <td>Game Red Dead Redemption</td>
+          <td>01</td>
+          <td class="price">R$ 237,41</td>
+          <td class="price">R$ 237,41</td>
+          <td>Cartão à Vista</td>
+          <td class="sale">
+            <input type="radio" name="sale1" value="1" />Apagar
+            <input type="radio" name="sale1" value="2" />Editar
+            <button class="button" type="submit">Ok</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-a">
+      <p>Siga-nos nas redes sociais!</p>
+
+      <div class="icons">
+        <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+        <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+        <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+      </div>
+    </div>
+  </body>
+</html>
