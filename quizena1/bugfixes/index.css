@@ -86,7 +86,7 @@ article ol {
 }
 
 article h3 {
-  margin: 5% -12% ;
+  margin: 5% -12%;
 }
 
 #container-para-comprar {
@@ -111,8 +111,14 @@ div:last-child {
   text-align: center;
 }
 
+section, table {
+  margin: 0 auto;
+  text-align: center;
+}
+
 table {
   width: 60%;
+  margin-bottom: 10%;
 }
 
 td button {
