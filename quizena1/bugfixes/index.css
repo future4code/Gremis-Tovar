@@ -39,7 +39,7 @@ div > p:first-child {
 }
 
 div img {
-  width: 15px;;
+  width: 15px;
 }
 
 .botao-amarelo {
@@ -111,7 +111,8 @@ div:last-child {
   text-align: center;
 }
 
-section, table {
+section,
+table {
   margin: 0 auto;
   text-align: center;
 }
@@ -121,12 +122,21 @@ table {
   margin-bottom: 10%;
 }
 
-
 td button {
   background-color: #fadf63;
   width: 150px;
   height: 30px;
   border-radius: 5px;
+  color: black;
+}
+
+td button:hover {
+  background-color: white;
+  color: black;
+}
+
+td button:active {
+  background-color: #EEEEEE;
   color: black;
 }
 
