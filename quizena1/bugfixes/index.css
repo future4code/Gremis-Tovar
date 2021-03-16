@@ -54,6 +54,7 @@ div img {
   border-radius: 5px;
   font-size: 20px;
   color: white;
+  border: none;
 }
 
 .botao-amarelo:hover {
@@ -83,7 +84,7 @@ div img {
 }
 
 article div {
-  margin: 0 44% 5%;
+  margin: 0 43% 5%;
 }
 
 article ol {
@@ -133,6 +134,7 @@ td button {
   height: 30px;
   border-radius: 5px;
   color: black;
+  border: none;
 }
 
 td button:hover {
