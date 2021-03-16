@@ -24,6 +24,8 @@ h3 {
 input {
   height: 20px;
   width: 500px;
+  border-color: transparent;
+  border-bottom: 3px solid gray;
 }
 
 button:focus {
@@ -136,7 +138,7 @@ td button:hover {
 }
 
 td button:active {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: black;
 }
 
