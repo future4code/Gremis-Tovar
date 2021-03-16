@@ -31,7 +31,7 @@ button:focus {
 }
 
 img {
-  width: 100px;
+  width: 55px;
 }
 
 div > p:first-child {
@@ -120,6 +120,7 @@ table {
   width: 60%;
   margin-bottom: 10%;
 }
+
 
 td button {
   background-color: #fadf63;
