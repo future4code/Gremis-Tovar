@@ -27,6 +27,31 @@ ul {
   margin: auto;
 }
 
+
+/* Whatsapp */
+
+.btn-wsp{
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 30px;
+  right: 30px;
+  background: #0df053;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.btn-wsp:hover{
+  text-decoration: none;
+  color: #0df053;
+  background: #fff;
+}
+
 /* Nav */
 
 nav {
@@ -135,7 +160,7 @@ nav ul li a:hover {
 
 .showcase .slider.slider .caption p {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   color: #fff;
   font-size: 18px;
 }
@@ -147,7 +172,7 @@ nav ul li a:hover {
 }
 
 .showcase .slider .slide.slide2 {
-  background: url(./images/b.jpg);
+  background: url(./images/f.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -176,10 +201,10 @@ nav ul li a:hover {
     left: -111.7%;
   }
   50% {
-    left: -211.7%;
+    left: -223.4%;
   }
   70% {
-    left: -211.7%;
+    left: -223.4%;
   }
   75% {
     left: -335.1%;
@@ -221,7 +246,7 @@ nav ul li a:hover {
 
 .home-cards div img {
   width: 100%;
-  margin-bottom: 20px;
+  margin: 0px;
 }
 
 .home-cards h3 {
@@ -238,38 +263,44 @@ nav ul li a:hover {
 
 .home-cards a:hover img {
   margin-left: 10px;
+  
 }
 
-/* Xbox */
+/* Travel */
 
-.xbox {
+.travel {
   width: 100%;
   height: 350px;
-  background: url("./images/k.jpg") no-repeat center center/cover;
+  background: url("./images/travel.jpg") no-repeat center center/cover ;
   margin-bottom: 30px;
 }
 
-.xbox .content {
+.travel .content {
   width: 40%;
   padding: 50px 0 0 30px;
 }
 
-.xbox p,
-.carbon p {
+.travel p,
+.safe p {
   margin: 10px 0 20px;
 }
 
-/* Carbon */
+/* safe */
 
-.carbon {
+.safe {
   width: 100%;
   height: 350px;
   background: url("./images/i.jpg") no-repeat center center/cover;
+  opacity: 1.8;
 }
 
-.carbon .content {
+.safe .content {
   width: 55%;
   padding: 100px 0 0 30px;
+}
+
+.content p{
+  font-weight: 600;
 }
 
 .dark {
@@ -316,7 +347,7 @@ nav ul li a:hover {
   margin: 0 auto;
   padding: 0 20px 0 60px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   align-items: flex-start;
   justify-content: center;
@@ -324,6 +355,21 @@ nav ul li a:hover {
 
 .links li {
   line-height: 2.8;
+}
+#ubication,
+#mail{
+  display: flex;
+  justify-content: center;
+}
+
+#mail a{
+  color: #0067b8;
+  font-weight: 600;
+}
+
+iframe{
+  width: 500px;
+  height: 350px;
 }
 
 /* Footer */
@@ -356,6 +402,39 @@ nav ul li a:hover {
 
 /* Responsive */
 
+@media (max-width: 1280px) {
+  .showcase .slider .slide {
+    margin-right: 134px;
+  }
+
+  @keyframes animate {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -111.6%;
+    }
+    45% {
+      left: -111.6%;
+    }
+    50% {
+      left: -223.2%;
+    }
+    70% {
+      left: -223.2%;
+    }
+    75% {
+      left: -334.9%;
+    }
+    100% {
+      left: -334.9%;
+    }
+  }
+}
+
 @media (max-width: 950px) {
   .menu-icon {
     display: block;
@@ -378,6 +457,7 @@ nav ul li a:hover {
     width: 100%;
     padding: 0px;
     margin: 0px;
+    z-index: 1;
   }
   .menu li {
     width: 100%;
@@ -456,23 +536,50 @@ nav ul li a:hover {
     position: inherit;
   }
 
-  .showcase{
-    display: none;
+  .showcase .slider .slide {
+    margin-right: 134px;
+  }
+
+  @keyframes animate {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -115.8%;
+    }
+    45% {
+      left: -115.8%;
+    }
+    50% {
+      left: -231.7%;
+    }
+    70% {
+      left: -231.7%;
+    }
+    75% {
+      left: -347.4%;
+    }
+    100% {
+      left: -347.4%;
+    }
   }
 
   .home-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .xbox .content p {
+  .travel .content p {
     display: none;
   }
 
-  .xbox .content h2 {
+  .travel .content h2 {
     margin-bottom: 20px;
   }
 
-  .carbon .content {
+  .safe .content {
     width: 85%;
   }
 
@@ -498,19 +605,50 @@ nav ul li a:hover {
     font-size: 16px;
   }
 
+  .showcase .slider .slide {
+    margin-right: 120px;
+  }
+
+  @keyframes animate {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -115.8%;
+    }
+    45% {
+      left: -115.8%;
+    }
+    50% {
+      left: -231.7%;
+    }
+    70% {
+      left: -231.7%;
+    }
+    75% {
+      left: -347.4%;
+    }
+    100% {
+      left: -347.4%;
+    }
+  }
+
   .home-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .xbox .content p {
+  .travel .content p {
     display: none;
   }
 
-  .xbox .content h2 {
+  .travel .content h2 {
     margin-bottom: 20px;
   }
 
-  .carbon .content {
+  .safe .content {
     width: 85%;
   }
 
@@ -520,6 +658,10 @@ nav ul li a:hover {
 }
 
 @media (max-width: 500px) {
+  .showcase .slider .slide {
+    margin-right: 69px;
+  }
+
   .home-cards {
     grid-template-columns: 1fr;
   }
@@ -529,5 +671,17 @@ nav ul li a:hover {
 
   .links .links-inner ul {
     margin-bottom: 20px;
+  }
+}
+
+iframe{
+  width: 350px;
+  height: 200px;
+}
+
+
+@media (max-width: 376px) {
+  .showcase .slider .slide {
+    margin-right: 53px;
   }
 }
