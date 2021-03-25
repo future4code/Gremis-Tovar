@@ -1,0 +1,165 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  text-align: center;
+  line-height: 30vh;
+}
+
+#main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30% 70% 66% auto;
+  grid-gap: 10px;
+  height: 100vh;
+}
+
+#first-block {
+  background-color: red;
+  height: 30vh;
+}
+
+.blue-block {
+  border: 1px solid black;
+  background-color: blue;
+  margin: 10px;
+}
+
+.yellow-block {
+  border: 1px solid black;
+  background-color: yellow;
+  margin: 10px;
+}
+
+.green-block {
+  border: 1px solid black;
+  background-color: green;
+  margin: 10px;
+}
+
+.grid_a {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5px;
+  height: 60vh;
+  width: 95vw;
+  margin: 15px;
+}
+
+.black-block {
+  background-color: black;
+  color: white;
+  margin: 10px;
+}
+
+.grid_b {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr;
+  grid-gap: 5px;
+  height: 65vh;
+  width: 95vw;
+  margin: 15px;
+}
+
+.white-block {
+  border: 1px solid black;
+  background-color: white;
+  margin: 10px;
+}
+
+.grid_c {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  height: 30vh;
+  width: 95vw;
+  margin: 15px;
+  padding-bottom: 20vh;
+}
+
+@media (max-width: 900px) {
+  #main-container {
+    grid-template-rows: 28% 134% 55% auto;
+  }
+  .grid_a {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+
+  .green-block {
+    grid-column: 1 / span 3;
+    width: 92vw;
+  }
+
+  .grid_b {
+    height: 55vh;
+  }
+
+  .grid_c {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-bottom: 5vh;
+  }
+
+  .white-block {
+    height: 15vh;
+    line-height: 15vh;
+  }
+
+  .one {
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (max-width: 500px) {
+  div {
+    line-height: 15vh;
+  }
+  #main-container {
+    grid-template-columns: 100%;
+    grid-template-rows: 24% 113% 35%;
+  }
+
+  #first-block {
+    height: 25vh;
+  }
+  .grid_a {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(5, 115px);
+    grid-gap: 5px;
+    margin: 0;
+  }
+  .green-block {
+    grid-column: 1;
+    width: 89vw;
+  }
+
+  .grid_b {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 115px);
+    width: 95vw;
+    margin: 0px;
+  }
+  .grid_c {
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 115px);
+    margin: 0;
+  }
+
+  .one {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 350px) {
+  #main-container {
+    grid-template-columns: 100%;
+    grid-template-rows: 24% 107% 33%;
+  }
+}
