@@ -150,3 +150,268 @@ if(generoAmigo == genero && ingresso < preco){
 } else {
     console.log("Escolha outro filme!!")
 }
+
+
+//DESAFIOS
+
+//1_ Modifique o código do exercício 7 para, antes de imprimir a mensagem "Bom filme!", pergunte ao usuário, pelo prompt que snack ele vai comprar (pipoca, chocolate, doces, etc) e imprima no console as mensagens "Bom filme!" e "... com [SNACK]", trocando [SNACK] pelo que o usuário colocou no input.
+
+let genero = prompt("Qual gênero de filme vão assistir?")
+let ingresso = Number(prompt("Qual preço do ingresso você quer?"))
+let generoAmigo = "Fantasia"
+let preco = 15
+
+if(generoAmigo == genero && ingresso < preco){ 
+    let snack = prompt("Qual snack você vai comprar? \n **Pipoca** \n **Bombom** \n **Doces** \n **Pipoca e Bombom** \n **Pipoca e Doces** \n **Bombom e Doces** \n **Pipoca, Bombom e Doces**");
+    switch(snack) {
+    case "Pipoca":
+        console.log("Bom filme!! E que aproveite com sua pipoca!!")
+        break;
+    case "Bombom":
+        console.log("Bom filme!! E que aproveite seu bombom!!")
+        break;
+    case "Doces":
+        console.log("Bom filme!! E que aproveite com seus docinhos!!")
+        break;
+    case "Pipoca e Bombom":
+        console.log("Bom filme!! E que aproveite com sua pipoca e seu bombom!!")
+        break;
+    case "Pipoca e Doces":
+        console.log("Bom filme!! E que aproveite com sua pipoca e seus doces!!")
+        break;
+    case "Bombom e Doces":
+        console.log("Bom filme!! E que aproveite com sua bombom e seus doces!!")
+        break;
+    case "Pipoca, Bombom e Doces":
+        console.log("Bom filme!! E que aproveite com seu combo turbinado!!")
+        break;
+    }  
+} else {
+    console.log("Escolha outro filme!!")
+}
+
+// 2_Sistema de vendas de ingressos de jogos de um estádio de futebol
+
+let fullName = prompt("Digite seu nome completo")
+let typeGame = prompt("Digite **IN** para internacional \n Digite **DO** para doméstico")
+let stageGame = prompt("Digite **SF** se deseja a semi-final \n Digite **DT** se deseja a decisão de terceiro lugar \n Digite **FI** se deseja a final")
+let category = prompt("Digite **1**, **2**, **3** ou **4** para a categoria desejada")
+let amountTickets = Number(prompt("Digite em números a quantidade de ingressos deseja comprar"))
+
+if (typeGame === "IN"){
+    if(stageGame === "SF"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else {
+            let priceUnit = 1320 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 880 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 550 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 220 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    }
+    } else if(stageGame === "DT"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 660 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 440 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 330 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 170 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    }
+    } else if(stageGame === "FI"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 1980 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 1320 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 880 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 330 / 4.1
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit.toFixed(2) + " U$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total.toFixed(2) + " U$")
+        }
+    }
+
+    } else {
+        console.log("Opa! Tem que digitar o tipo de jogo que você deseja assistir!!")
+    }
+} else if(typeGame === "DO"){
+    if(stageGame === "SF"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 1320
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 880
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 550
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 220
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    }
+    } else if(stageGame === "DT"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 660
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 440
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 330
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 170
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    }
+    } else if(stageGame === "FI"){
+        if(category === "1"){
+            if(amountTickets == null || amountTickets <= 0){
+                console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 1980
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "2"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 1320
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "3"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 880
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    } else if(category === "4"){
+        if(amountTickets == null || amountTickets <= 0){
+            console.log("Opa!! Tem que digitar uma quantidade de ingressos válida! Tenta de novo por favor!")
+            } else{
+            let priceUnit = 330
+            let total = amountTickets * priceUnit
+            console.log("Obrigada pela sua compra " + fullName + "\n Você tem " + amountTickets + " ingressos, para assistir à " + stageGame + " do partido de futebol, na categoria " + category + " para o tipo de público " + typeGame + "\n lembrando que cada ingresso para este tipo de jogo tem um custo de " + priceUnit + " R$ \n Neste caso, o preço total pelos seus " + amountTickets + " ingressos foi de " + total + " R$")
+        }
+    }
+
+    } else {
+        console.log("Opa! Tem que digitar o tipo de jogo que você deseja assistir!!")
+    }
+} else {
+    console.log("Opa! Tem que digitar se é público internacional (IN) ou doméstico (DO)!!")
+}
