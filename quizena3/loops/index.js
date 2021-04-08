@@ -62,13 +62,13 @@
 // 0 < 3 -> imprime a linha
 // 0 < 4 -> imprime a linha
 // Vamos ter então 4 linhas, o que vai ir dentro da linha vai ser definido pelo laço for que está dentro do while
-// Ao inicio se declara a variável vazia, mas vai estar esperando um valor tipo string
-// que vai executar iterações enquanto 0 (asteriscos) seja menor quantidadeAtual + 1, ou seja, 4 vezes
+// Ao inicio se declara a variável vazia, mas vai estar esperando um valor tipo string que vai ser definido no laço
+// Este for vai determinar a quantidade de "0" (neste caso) que vai se repetir dentro de cada linha
 //  linha = "linha + "0""
-// Então no primeiro ciclo                  -> linha = "" + "0" = "0"
-// No segundo ciclo                         -> linha = "0" + "0" = "00"
-// Terceiro ciclo                           -> linha = "00" + "0" = "000"
-// E no último ciclo, seria                 -> linha = "000" + "0" = "0000"
+// Então no primeiro ciclo                  -> linha = "" + "0" = "0"         se fosse quantidadeAtual + 2 começaria  -> linha = "" + "00" = "00" 
+// No segundo ciclo                         -> linha = "0" + "0" = "00"                e iria aumentando de 1 em 1    -> linha = "00" + "0" = "000" 
+// Terceiro ciclo                           -> linha = "00" + "0" = "000"                                             -> linha = "000" + "0" = "0000"
+// E no último ciclo, seria                 -> linha = "000" + "0" = "0000"                                           -> linha = "0000" + "0" = "00000"
 //Como são string vão ir se juntando em uma linha só
 
 
@@ -160,3 +160,86 @@
 //     - Uma mensagem dizendo se o número escolhido é maior ou menor do que o número chutado: `Errou. O número escolhido é maior/menor`
 // - Quando o segundo jogador acertar o número escolhido pelo primeiro jogador, deve ser impressa a mensagem: `Acertou` ; e, embaixo, `O número de tentativas foi : <quantos chutes o usuário deu>`
 
+
+
+// let firstPlayer = parseInt(prompt("Digita um número para que o outro jogador adivinhe.")); 
+
+// console.log("Vamos jogar!");
+// let count = 1;
+// while(true){ // O while permitirá que todo o código seja executado até que haja um break. Neste caso, o usuário continuará colocando o número até que o adivinhe
+    
+// let secondPlayer = prompt("Digita um número até adivinhar o número mágico que digitou o outro jogador. \n Se quiser sair do jogo é só digitar o número 0 e clicar OK"); 
+// if (secondPlayer != 0) {
+//     count++
+// }
+
+// if(secondPlayer == firstPlayer){  
+//     console.log("O número chutado foi: " + secondPlayer)
+//     console.log("Acertou!!  O número de tentativas foi: " + count);
+//     alert("Acertou!!");
+//   break;
+// }
+// else if(secondPlayer == 0){
+//   break;
+// }
+// else if(secondPlayer < firstPlayer){
+//     console.log("O número chutado foi: " + secondPlayer)
+//     console.log("Errooooou!! \n O número é menor");
+//     alert("Errooooou!! \n O número é menor");
+// }
+// else if(secondPlayer > firstPlayer){
+//     console.log("O número chutado foi: " + secondPlayer)
+//     console.log("Errooooou!! \n O número é menor");
+//     alert("Errooooou!! \n O número é maior");
+// }
+
+// }
+
+
+
+
+// DESAFIO 2_Uma das principais características de uma boa pessoa programadora é conseguir resolver seus problemas independentemente. Queremos que você comece a treinar isso a partir de hoje! Então, vamos pedir para que você faça uma alteração no código acima. Agora, ao invés de ter 2 jogadores, haverá um só; e o seu adversário será o computador. A ideia é: ao iniciar o jogo, você deve sortear um número aleatório (entre 1 e 100) e o usuário terá que ficar chutando o valor até acertar. Mantenha as demais funcionalidades e mensagens pedidas no exercício anterior.
+
+// Quando resolver o exercício, pare e faça a seguinte reflexão: foi fácil fazer esta alteração? O que você poderia ter feito para que fosse mais fácil? **Deixe comentários no seu código sobre esta reflexão.**
+
+
+let max = 100;
+let min = 1; 
+let computer = Math.random()*(max-min) + min; // Equação que gera um número entre o número máximo e o número mínimo que é minimo
+computer = parseInt(computer); // A função parseInt recebe um parâmetro e o transforma em número inteiro, neste caso o número inteiro, neste caso o número variável gera um número entre 1 e 100 que será convertido em inteiro, no caso seja flutuante
+console.log("Vamos jogar!");
+let count = 1;
+
+while(true){ // O while permitirá que todo o código seja executado até que haja um break. Neste caso, o usuário continuará colocando o número até que o adivinhe
+    
+    let user = prompt("Digita um número até adivinhar o número mágico. \n Se quiser sair do jogo é só digitar o número 0 e clicar OK"); 
+    if (user != 0) {
+        count++
+    }
+if(user == computer){ 
+    console.log("O número chutado foi: " + user)
+    console.log("Acertou!!  O número de tentativas foi: " + count);
+    alert("Acertou!!");
+  break;
+}
+else if(user == 0){
+  break;
+}
+else if(user < computer){
+    console.log("O número chutado foi: " + user)
+    console.log("Errooooou!! \n O número é menor");
+    alert("Errooooou!! \n O número é menor");
+}
+else if(user > computer){
+    console.log("O número chutado foi: " + user)
+    console.log("Errooooou!! \n O número é menor");
+    alert("Errooooou!! \n O número é maior");
+}
+
+}
+
+
+// Em ambos desafios tive que pensar na lógica do exercício,
+// mas a lógica do computador, foi tranquilo (Eu gosto de um pouquinho de cálculo numérico, álgebra, probabilidade e estatística, geometria e matemática, meu gosto termina quando chegamos às integrações de equações complexas)
+// mas o que mais me custou em ambos foi implementar o contador de tentativas,
+// tive que fazer uma pesquisa no google para abrir um pouco o meu pensamento e poder implementá-lo.
