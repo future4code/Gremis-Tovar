@@ -173,16 +173,100 @@
 
 // d. Reescreva seu código anterior (do item c) de tal forma que ele utilize a função do item b para verificar se o número é par
 
-let listNumbers = (array) => {
-    for(let i = 0; i < array.length; i++) {
-        if(array[i] % 2 == 0){
-           console.log(array[i] + ': ' + true);
-        } else {
-            console.log(array[i] + ': ' + false);
-        }
-    }
-};
+// let listNumbers = (array) => {
+//     for(let i = 0; i < array.length; i++) {
+//         if(array[i] % 2 == 0){
+//            console.log(array[i] + ': ' + true);
+//         } else {
+//             console.log(array[i] + ': ' + false);
+//         }
+//     }
+// };
 
-console.log(listNumbers([10, 23, 45, 78, 90, 52, 35, 67, 84, 22]));
+// console.log(listNumbers([10, 23, 45, 78, 90, 52, 35, 67, 84, 22]));
 
 /*DESAFIOS*/
+
+// EXERCÍCIO 1.1_ Escreva uma arrow function que recebe um parâmetro e imprime no console esse parâmetro.
+
+// (parameter) => {
+//    return parameter;
+// };
+
+// console.log(("oi") );
+
+
+// EXERCÍCIO 1.2_Escreva outra arrow function que recebe dois valores como parâmetros mas nenhum retorno. Faça a soma entre esses valores e chame a sua primeira função mandando este resultado da soma como entrada para imprimí-lo.
+
+// let values = (a, b) => {
+//     console.log(a + b)
+// };
+
+// values(1, 2);
+
+//EXERCÍCIO 2.a_ Escreva uma função que receba um array como parâmetro e retorne um array com apenas os números pares e multiplicados por 2.
+
+// const numeros = (array) => {
+//     let arrayFinal = [];
+  
+//     for (let x of array) {
+//       if (x % 2 === 0) {
+//           arrayFinal.push(x * 2)
+//       }
+//     }
+//     return arrayFinal;
+//   }
+
+//   console.log(numeros([0, 8, 23, 16, 10, 15, 41, 12, 13]))
+
+//EXERCÍCÍO 2.b_Escreva uma função que receba um array como parâmetro e retorne o maior número deste array.
+
+// const numeros = (array) => {
+//     let valorMaximo = 0;
+//     for(let i = 0; i < array.length; i++) {
+//         if(array[i] > valorMaximo){
+//             valorMaximo = array[i]
+//         }
+//     }
+//     console.log("O maior número e: ", valorMaximo)
+//   }
+
+// numeros([0, 8, 23, 16, 10, 15, 41, 12, 13]);
+
+//EXERCÍCIO 2.c_c. Escreva uma função que receba um array como parâmetro e retorne o índice do maior número deste array.
+
+
+// const numeros = (array) => {
+//     let valorMaximo = 0;
+//     let indexMaximo = 0;
+//     for(let i = 0; i < array.length; i++) {
+//         if(array[i] > valorMaximo){
+//             valorMaximo = array[i]
+//             indexMaximo = [i]
+//         }
+//     }
+//     console.log("O indice do maior número do array é: " + indexMaximo)
+//   }
+
+// numeros([0, 8, 23, 16, 10, 15, 41, 12, 13]);
+
+//EXERCÍCIO 2.d_ Escreva uma função que recebe um array como parâmetro e retorne este array invertido.
+//Pode ser desse jeito
+// const numeros = (array) => {
+//    let arrayReverse= array.reverse();
+//     return arrayReverse;
+// }
+
+// console.log(numeros([0, 8, 23, 16, 10, 15, 41, 12, 13]));
+
+// Pode ser também desse jeito
+
+const numeros = (array) => {
+    let result = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+      result.push(array[i]);
+    }
+    return result;
+  };
+  
+  console.log(numeros([0, 8, 23, 16, 10, 15, 41, 12, 13]));
