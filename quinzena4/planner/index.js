@@ -63,5 +63,5 @@ function limparTudo() {
 }
 
 function riscarTarefa(element) {
-  element.style.textDecoration = "line-through";
+  element.style.textDecoration = "line-through red";
 }
