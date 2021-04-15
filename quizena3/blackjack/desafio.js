@@ -29,14 +29,14 @@ if (newGame == true) {
   let userCards = [comprarCarta(), comprarCarta()];
   let userPoints = userCards[0].valor + userCards[1].valor;
   //Se as duas cartas iniciais do usuário forem dois ases (A), as cartas devem ser sorteadas novamente.
-  if (userCards[0].valor == 11 && userCards[1].valor == 11) {
+  while(userCards[0].valor == 11 && userCards[1].valor == 11) {
     userCards = [comprarCarta(), comprarCarta()];
   }
   // Atribuindo valores às cartas e pontoação da máquina
   let computerCards = [comprarCarta(), comprarCarta()];
   let computerPoints = computerCards[0].valor + computerCards[1].valor;
   //Se as duas cartas iniciais do usuário forem dois ases (A), as cartas devem ser sorteadas novamente.
-  if (computerCards[0].valor == 11 && computerCards[1].valor == 11) {
+  while (computerCards[0].valor == 11 && computerCards[1].valor == 11) {
     computerCards = [comprarCarta(), comprarCarta()];
   }
 
@@ -65,11 +65,7 @@ if (newGame == true) {
     if (userWantAnotherCard == 1) {
       userCards.push(comprarCarta());
       console.log("Sua outra carta é " + userCards[userCards.length - 1].texto);
-      let actualUserScore = 0;
-      for (let i = 0; i < userCards.length; i++) {
-        actualUserScore += userCards[i].valor;
-      }
-      userPoints = actualUserScore;
+      userPoints += userCards[userCards.length -1].valor
     } else {
       userPickCard = false;
     }
@@ -79,11 +75,7 @@ if (newGame == true) {
   for (let index = 2; computerPickCard && computerPoints <= 19; index++) {
     computerCards.push(comprarCarta());
     console.log("Minha outra carta é " + computerCards[computerCards.length - 1].texto);
-    let actualComputerScore = 0;
-    for (let i = 0; i < computerCards.length; i++) {
-      actualComputerScore += computerCards[i].valor;
-    }
-    computerPoints = actualComputerScore;
+    computerPoints += computerCards[computerCards.length -1].valor
     computerPickCard = computerPoints <= 19;
   }
   //Imprime a segunda carta
