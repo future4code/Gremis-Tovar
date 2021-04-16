@@ -1,6 +1,6 @@
 //Exercício 1
 
-function inverteArray(array) {
+function inverteArray() {
   const numbers = (array) => {
     let result = [];
     for (let i = array.length - 1; i >= 0; i--) {
@@ -19,10 +19,18 @@ function retornaNumerosParesElevadosADois(array) {
 
 //Exercício 3
 
-function retornaNumerosPares(array) {
-  // implemente sua lógica aqui
+function retornaNumerosPares() {
+  const numbersArray = (array) => {
+    let evenNumber = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 == 0) {
+        evenNumber.push(array[i]);
+      }
+    }
+    return evenNumber;
+  };
+  return numbersArray([1, 2, 3, 4, 5, 6]);
 }
-
 //Exercício 4
 
 function retornaMaiorNumero(array) {
