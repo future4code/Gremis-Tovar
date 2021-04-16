@@ -1,36 +1,37 @@
 //Exercício 1
 
-function inverteArray() {
-  const numbers = (array) => {
-    let result = [];
-    for (let i = array.length - 1; i >= 0; i--) {
-      result.push(array[i]);
-    }
-    return result;
-  };
-  return numbers([0, 8, 23, 16, 10, 15, 41, 12, 13]);
+function inverteArray(array) {
+  let result = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    result.push(array[i]);
+  }
+  return result;
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois(array) {
-  // implemente sua lógica aqui
+  let arrayFinal = [];
+  for (let x of array) {
+    if (x % 2 === 0) {
+      arrayFinal.push(x * x);
+    }
+  }
+  return arrayFinal;
 }
 
 //Exercício 3
 
-function retornaNumerosPares() {
-  const numbersArray = (array) => {
-    let evenNumber = [];
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] % 2 == 0) {
-        evenNumber.push(array[i]);
-      }
+function retornaNumerosPares(array) {
+  let evenNumber = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {
+      evenNumber.push(array[i]);
     }
-    return evenNumber;
-  };
-  return numbersArray([1, 2, 3, 4, 5, 6]);
+  }
+  return evenNumber;
 }
+
 //Exercício 4
 
 function retornaMaiorNumero(array) {
