@@ -35,7 +35,13 @@ function retornaNumerosPares(array) {
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-  // implemente sua lógica aqui
+  let valorMaximo = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > valorMaximo) {
+      valorMaximo = array[i];
+    }
+  }
+  return valorMaximo;
 }
 
 //Exercício 5
