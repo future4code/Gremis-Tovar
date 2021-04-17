@@ -73,10 +73,10 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
   let evenNumberN = [];
-  for (let index = 0; evenNumberN.length < n ; index++) {
-    if(index % 2 == 0){
+  for (let index = 0; evenNumberN.length < n; index++) {
+    if (index % 2 == 0) {
       evenNumberN.push(index);
-    } 
+    }
   }
   return evenNumberN;
 }
@@ -84,7 +84,13 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+  if (a == b && b == c) {
+    return "Equilátero";
+  } else if (a !== b && b !== c && a !== c) {
+    return "Escaleno";
+  } else {
+    return "Isósceles";
+  }
 }
 
 // Exercício 9
