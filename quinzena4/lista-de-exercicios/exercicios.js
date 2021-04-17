@@ -96,7 +96,33 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-  // implemente sua lógica aqui
+  let majorNumber;
+  let majorDivisibleByMinor;
+  let subtraction;
+
+  if (num1 > num2 && num1 % num2 === 0) {
+    majorNumber = num1;
+    majorDivisibleByMinor = true;
+    subtraction = num1 - num2;
+  } else if (num2 > num1 && num2 % num1 === 0) {
+    majorNumber = num2;
+    majorDivisibleByMinor = true;
+    subtraction = num2 - num1;
+  } else if (num1 > num2 && num1 % num2 !== 0) {
+    majorNumber = num1;
+    majorDivisibleByMinor = false;
+    subtraction = num1 - num2;
+  } else if (num2 > num1 && num2 % num1 !== 0) {
+    majorNumber = num2;
+    majorDivisibleByMinor = false;
+    subtraction = num2 - num1;
+  }
+
+  return {
+    maiorNumero: majorNumber,
+    maiorDivisivelporMenor: majorDivisibleByMinor,
+    diferenca: subtraction,
+  };
 }
 
 // Exercício 10
