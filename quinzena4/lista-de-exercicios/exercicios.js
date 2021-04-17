@@ -66,13 +66,19 @@ function retornaExpressoesBooleanas() {
     (!booleano1 && !booleano3) || (!booleano4 && booleano3 && booleano3),
   ];
 
-  return(arr);
+  return arr;
 }
 
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-  // implemente sua lógica aqui
+  let evenNumberN = [];
+  for (let index = 0; evenNumberN.length < n ; index++) {
+    if(index % 2 == 0){
+      evenNumberN.push(index);
+    } 
+  }
+  return evenNumberN;
 }
 
 // Exercício 8
