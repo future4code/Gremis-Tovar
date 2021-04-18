@@ -128,19 +128,42 @@ function comparaDoisNumeros(num1, num2) {
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-  // implemente sua lógica aqui
+  let increasing = [];
+  let position = 0;
+  let maximumValue = array[0];
+  let minimumValue = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (maximumValue < array[i]) {
+      maximumValue = array[i];
+    }
+  }
+
+  for (let j = 0; j < array.length; j++) {
+    for (let k = 0; k < array.length; k++) {
+      if (array[k] != null) {
+        if (minimumValue > array[k]) {
+          minimumValue = array[k];
+          position = k;
+        }
+      }
+    }
+    increasing[j] = minimumValue;
+    array[position] = null;
+    minimumValue = maximumValue;
+  }
+  array = increasing;
+  const secondMinorAndMajor = [array[array.length - 2], array[1]];
+  return secondMinorAndMajor;
 }
 
 //Exercício 11
 
 function ordenaArray(array) {
-
   // USING SORT
   // return array.sort(function (a, b) {
   //   return a - b;
   // });
-
-
 
   // USING STACKOVERFLOW
   // -----------------------------------------
@@ -157,8 +180,6 @@ function ordenaArray(array) {
   //   }
   // }
   // return array;
-
-
 
   // JOIN INFORMATION FOUND
   // ----------------------------------------
