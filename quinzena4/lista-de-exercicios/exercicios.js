@@ -134,7 +134,59 @@ function segundoMaiorEMenor(array) {
 //Exercício 11
 
 function ordenaArray(array) {
-  // implemente sua lógica aqui
+
+  // USING SORT
+  // return array.sort(function (a, b) {
+  //   return a - b;
+  // });
+
+
+
+  // USING STACKOVERFLOW
+  // -----------------------------------------
+  // let order = false;
+  // while (!order) {
+  //   order = true;
+  //   for (let i = 1; i < array.length; i += 1) {
+  //     if (array[i - 1] > array[i]) {
+  //       order = false;
+  //       const increasing = array[i - 1];
+  //       array[i - 1] = array[i];
+  //       array[i] = increasing;
+  //     }
+  //   }
+  // }
+  // return array;
+
+
+
+  // JOIN INFORMATION FOUND
+  // ----------------------------------------
+  let increasing = [];
+  let position = 0;
+  let maximumValue = array[0];
+  let minimumValue = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (maximumValue < array[i]) {
+      maximumValue = array[i];
+    }
+  }
+
+  for (let j = 0; j < array.length; j++) {
+    for (let k = 0; k < array.length; k++) {
+      if (array[k] != null) {
+        if (minimumValue > array[k]) {
+          minimumValue = array[k];
+          position = k;
+        }
+      }
+    }
+    increasing[j] = minimumValue;
+    array[position] = null;
+    minimumValue = maximumValue;
+  }
+  return increasing;
 }
 
 // Exercício 12
