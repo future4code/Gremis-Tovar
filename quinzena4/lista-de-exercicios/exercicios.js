@@ -1,11 +1,24 @@
 //Exercício 1
 
 function inverteArray(array) {
-  let result = [];
-  for (let i = array.length - 1; i >= 0; i--) {
-    result.push(array[i]);
+  //-----------------------------------
+  // O que fazemos é percorrer o array de 0 até a metade e trocar o primeiro elemento pelo último, o segundo pelo penúltimo e assim por diante.
+  let fixLength = array.length;
+
+  for (let i = 0; i < fixLength / 2; i++) {
+    let temporary = array[i];
+    let oppositeIndex = fixLength - i - 1;
+    array[i] = array[oppositeIndex];
+    array[oppositeIndex] = temporary;
   }
-  return result;
+  return array;
+
+  //-------------------------------------
+  // let result = [];
+  // for (let i = array.length - 1; i >= 0; i--) {
+  //   result.push(array[i]);
+  // }
+  // return result;
 }
 
 //Exercício 2
@@ -128,44 +141,104 @@ function comparaDoisNumeros(num1, num2) {
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-  let increasing = [];
-  let position = 0;
+  //---------------------------------------------
+  // let copyArray = [0];
+
+  // for (i = 0; i < array.length; i++) {
+  //   copyArray[i] = array[i];
+  // }
+
+  // let secondMajor = Math.max.apply(Math, copyArray);
+  // copyArray.splice(copyArray.indexOf(secondMajor), 1);
+  // secondMajor = Math.max.apply(Math, copyArray);
+
+  // let secondMinor = Math.min.apply(Math, copyArray);
+  // copyArray.splice(copyArray.indexOf(secondMinor), 1);
+  // secondMinor = Math.min.apply(Math, copyArray);
+
+  // const secondMajorAndMinor = [secondMajor, secondMinor];
+
+  // return secondMajorAndMinor;
+
+  //---------------------------------------------
+  // let increasing = [];
+  // let position = 0;
+  // let maximumValue = array[0];
+  // let minimumValue = array[0];
+
+  // for (let i = 0; i < array.length; i++) {
+  //   if (maximumValue < array[i]) {
+  //     maximumValue = array[i];
+  //   }
+  // }
+
+  // for (let j = 0; j < array.length; j++) {
+  //   for (let k = 0; k < array.length; k++) {
+  //     if (array[k] != null) {
+  //       if (minimumValue > array[k]) {
+  //         minimumValue = array[k];
+  //         position = k;
+  //       }
+  //     }
+  //   }
+  //   increasing[j] = minimumValue;
+  //   array[position] = null;
+  //   minimumValue = maximumValue;
+  // }
+  // array = increasing;
+  // const secondMinorAndMajor = [array[array.length - 2], array[1]];
+  // return secondMinorAndMajor;
+
+  //-----------------------------------------
+  // Esta resposta é a mais ótima porque funciona sem importar se o array tem números repetidos
+
   let maximumValue = array[0];
+  let maximumIndex = 0;
   let minimumValue = array[0];
+  let minimumIndex = 0;
 
   for (let i = 0; i < array.length; i++) {
-    if (maximumValue < array[i]) {
+    if (array[i] > maximumValue) {
       maximumValue = array[i];
+      maximumIndex = i;
+    }
+    if (array[i] < minimumValue) {
+      minimumValue = array[i];
+      minimumIndex = i;
     }
   }
 
-  for (let j = 0; j < array.length; j++) {
-    for (let k = 0; k < array.length; k++) {
-      if (array[k] != null) {
-        if (minimumValue > array[k]) {
-          minimumValue = array[k];
-          position = k;
-        }
-      }
+  let secondMaximumValue = -1;
+  let secondMaximumIndex = -1;
+  let secondMinimumValue = -1;
+  let secondMinimumIndex = -1;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > secondMaximumValue && i != maximumIndex) {
+      secondMaximumValue = array[i];
+      secondMaximumIndex = i;
     }
-    increasing[j] = minimumValue;
-    array[position] = null;
-    minimumValue = maximumValue;
+    if (secondMinimumValue == -1 && i != minimumIndex) {
+      secondMinimumValue = array[i];
+      secondMinimumIndex = i;
+    }
+    if (array[i] < secondMinimumValue) {
+      secondMinimumValue = array[i];
+      secondMinimumIndex = i;
+    }
   }
-  array = increasing;
-  const secondMinorAndMajor = [array[array.length - 2], array[1]];
+  const secondMinorAndMajor = [secondMaximumValue, secondMinimumValue];
   return secondMinorAndMajor;
 }
 
 //Exercício 11
 
 function ordenaArray(array) {
-  // USING SORT
+  //-----------------------------------------
   // return array.sort(function (a, b) {
   //   return a - b;
   // });
 
-  // USING STACKOVERFLOW
   // -----------------------------------------
   // let order = false;
   // while (!order) {
@@ -181,7 +254,6 @@ function ordenaArray(array) {
   // }
   // return array;
 
-  // JOIN INFORMATION FOUND
   // ----------------------------------------
   let increasing = [];
   let position = 0;
@@ -213,7 +285,14 @@ function ordenaArray(array) {
 // Exercício 12
 
 function filmeFavorito() {
-  // implemente sua lógica aqui
+  let object = {
+    nome: "O Diabo Veste Prada",
+    ano: 2006,
+    diretor: "David Frankel",
+    atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"],
+  };
+
+  return object;
 }
 
 // Exercício 13
