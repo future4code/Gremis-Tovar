@@ -416,13 +416,27 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-  // implemente sua lógica aqui
+  let peopleCan = [];
+
+  for (let i = 0; i < pessoas.length; i++) {
+    if (pessoas[i].altura >= 1.5 && pessoas[i].idade >= 14 && pessoas[i].idade <= 60) {
+      peopleCan.push(pessoas[i]);
+    }
+  }
+  return peopleCan;
 }
 
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
-  // implemente sua lógica aqui
+  let peopleCanNot = [];
+
+  for (let i = 0; i < pessoas.length; i++) {
+    if (pessoas[i].altura < 1.5 || pessoas[i].idade < 14 || pessoas[i].idade > 60) {
+      peopleCanNot.push(pessoas[i]);
+    }
+  }
+  return peopleCanNot;
 }
 
 //Exercício 19 A
