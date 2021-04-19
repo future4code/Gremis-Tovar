@@ -302,10 +302,15 @@ function imprimeChamada() {
     nome: "O Diabo Veste Prada",
     ano: 2006,
     diretor: "David Frankel",
-    atores: ["Meryl Streep", " Anne Hathaway", " Emily Blunt", " Stanley Tucci"],
+    atores: [
+      "Meryl Streep",
+      " Anne Hathaway",
+      " Emily Blunt",
+      " Stanley Tucci",
+    ],
   };
 
-  return (`Venha assistir ao filme ${object.nome}, de ${object.ano}, dirigido por ${object.diretor} e estrelado por ${object.atores}.`)
+  return `Venha assistir ao filme ${object.nome}, de ${object.ano}, dirigido por ${object.diretor} e estrelado por ${object.atores}.`;
 }
 
 // Exercício 14
@@ -324,7 +329,7 @@ function criaRetangulo(lado1, lado2) {
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-  pessoa.nome = 'ANÔNIMO';
+  pessoa.nome = "ANÔNIMO";
   return pessoa;
 }
 
@@ -340,13 +345,27 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-  // implemente sua lógica aqui
+  let arrayMajor = [];
+
+  for (let i = 0; i < arrayDePessoas.length; i++) {
+    if (arrayDePessoas[i].idade >= 18) {
+      arrayMajor.push(arrayDePessoas[i]);
+    }
+  }
+  return arrayMajor;
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-  // implemente sua lógica aqui
+  let arrayMinor = [];
+
+  for (let i = 0; i < arrayDePessoas.length; i++) {
+    if (arrayDePessoas[i].idade <= 18) {
+      arrayMinor.push(arrayDePessoas[i]);
+    }
+  }
+  return arrayMinor;
 }
 
 // Exercício 17, letra A
@@ -380,13 +399,13 @@ const pessoas = [
 
 //Exercício 18, letra A
 
-function retornaPessoasAutorizadas(pessoas) {
+function retornaPessoasAutorizadas() {
   // implemente sua lógica aqui
 }
 
 // Exercício 18, letra B
 
-function retornaPessoasNaoAutorizadas(pessoas) {
+function retornaPessoasNaoAutorizadas() {
   // implemente sua lógica aqui
 }
 
@@ -419,7 +438,7 @@ const consultas = [
   },
 ];
 
-function retornaEmailConsulta(consultas) {
+function retornaEmailConsulta() {
   // implemente sua lógica aqui
 }
 
