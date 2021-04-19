@@ -419,7 +419,11 @@ function retornaPessoasAutorizadas() {
   let peopleCan = [];
 
   for (let i = 0; i < pessoas.length; i++) {
-    if (pessoas[i].altura >= 1.5 && pessoas[i].idade >= 14 && pessoas[i].idade <= 60) {
+    if (
+      pessoas[i].altura >= 1.5 &&
+      pessoas[i].idade >= 14 &&
+      pessoas[i].idade <= 60
+    ) {
       peopleCan.push(pessoas[i]);
     }
   }
@@ -432,7 +436,11 @@ function retornaPessoasNaoAutorizadas() {
   let peopleCanNot = [];
 
   for (let i = 0; i < pessoas.length; i++) {
-    if (pessoas[i].altura < 1.5 || pessoas[i].idade < 14 || pessoas[i].idade > 60) {
+    if (
+      pessoas[i].altura < 1.5 ||
+      pessoas[i].idade < 14 ||
+      pessoas[i].idade > 60
+    ) {
       peopleCanNot.push(pessoas[i]);
     }
   }
@@ -490,5 +498,12 @@ const contas = [
 ];
 
 function atualizaSaldo() {
-  // implemente sua lógica aqui
+  for (let i = 0; i < contas.length; i++) {
+    let totalBuy = 0;
+    for (let j = 0; j < contas[i].compras.length; j++) {
+      totalBuy += contas[i].compras[j];
+    }
+    contas[i].saldoTotal -= totalBuy;
+  }
+  return contas;
 }
