@@ -409,7 +409,7 @@ function retornaPessoasNaoAutorizadas() {
   // implemente sua lógica aqui
 }
 
-//Exercício 19
+//Exercício 19 A
 
 const consultas = [
   {
@@ -438,7 +438,14 @@ const consultas = [
   },
 ];
 
-function retornaEmailConsulta() {
+function ordenaPorNome() {
+  // implemente sua lógica aqui
+}
+
+
+//Exercício 19 B
+
+function ordenaPorData() {
   // implemente sua lógica aqui
 }
 
