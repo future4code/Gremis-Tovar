@@ -371,19 +371,35 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-  // implemente sua lógica aqui
+  let multiplyByTwo = [];
+  for (let x of array) {
+    multiplyByTwo.push(x * 2);
+  }
+  return multiplyByTwo;
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+  let multiplyStringByTwo = [];
+  for (let x of array) {
+    multiplyStringByTwo.push(String(x * 2));
+  }
+  return multiplyStringByTwo;
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-  // implemente sua lógica aqui
+  let numberString = [];
+  for (let x of array) {
+    if (x % 2 == 0) {
+      numberString.push(`${x} é par`);
+    } else {
+      numberString.push(`${x} é ímpar`);
+    }
+  }
+  return numberString;
 }
 
 // Exercício 18
@@ -441,7 +457,6 @@ const consultas = [
 function ordenaPorNome() {
   // implemente sua lógica aqui
 }
-
 
 //Exercício 19 B
 
