@@ -19,6 +19,10 @@ function inverteArray(array) {
   //   result.push(array[i]);
   // }
   // return result;
+
+  //----------------------
+
+  // return array.reverse();
 }
 
 //Exercício 2
@@ -36,6 +40,7 @@ function retornaNumerosParesElevadosADois(array) {
 //Exercício 3
 
 function retornaNumerosPares(array) {
+  //--------------------------------
   let evenNumber = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] % 2 == 0) {
@@ -43,6 +48,15 @@ function retornaNumerosPares(array) {
     }
   }
   return evenNumber;
+
+  //---------------------------------
+
+  // function searchEvenNumber(value) {
+  //   if (value % 2 == 0) return value;
+  // }
+
+  // let evenNumber = array.filter(searchEvenNumber);
+  // return evenNumber;
 }
 
 //Exercício 4
@@ -345,19 +359,29 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
+  //-----------------------------
   let arrayMajor = [];
-
   for (let i = 0; i < arrayDePessoas.length; i++) {
     if (arrayDePessoas[i].idade >= 18) {
       arrayMajor.push(arrayDePessoas[i]);
     }
   }
   return arrayMajor;
+
+  //-------------------------------
+
+  // let newUsers = arrayDePessoas.filter((people) => {
+  //   if (people.idade >= 18) {
+  //     return people;
+  //   }
+  // });
+  // return newUsers;
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
+  //-----------------------------------
   let arrayMinor = [];
 
   for (let i = 0; i < arrayDePessoas.length; i++) {
@@ -366,26 +390,46 @@ function menoresDe18(arrayDePessoas) {
     }
   }
   return arrayMinor;
+
+  //-------------------------------------
+  // let newUsers = arrayDePessoas.filter((people) => {
+  //   if (people.idade <= 18) {
+  //     return people;
+  //   }
+  // });
+  // return newUsers;
 }
 
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
+  //------------------------------------
   let multiplyByTwo = [];
   for (let x of array) {
     multiplyByTwo.push(x * 2);
   }
   return multiplyByTwo;
+  //------------------------------------
+  // const multiplyByTwo = array.map((two) => {
+  //   return two * 2;
+  // });
+  // return multiplyByTwo;
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
+  //------------------------------------
   let multiplyStringByTwo = [];
   for (let x of array) {
     multiplyStringByTwo.push(String(x * 2));
   }
   return multiplyStringByTwo;
+  //------------------------------------
+  // const multiplyStringByTwo = array.map((two) => {
+  //   return (two * 2).toString();
+  // });
+  // return multiplyStringByTwo;
 }
 
 // Exercício 17, letra C
@@ -416,6 +460,7 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
+  //-----------------------------------
   let peopleCan = [];
 
   for (let i = 0; i < pessoas.length; i++) {
@@ -429,7 +474,6 @@ function retornaPessoasAutorizadas() {
   }
   return peopleCan;
 }
-
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
@@ -492,6 +536,8 @@ const contas = [
 ];
 
 function atualizaSaldo() {
+
+  //---------------------------------
   for (let i = 0; i < contas.length; i++) {
     let totalBuy = 0;
     for (let j = 0; j < contas[i].compras.length; j++) {
@@ -500,4 +546,15 @@ function atualizaSaldo() {
     contas[i].saldoTotal -= totalBuy;
   }
   return contas;
+
+  //------------------------------------
+
+  // contas.forEach(function callback (count) {
+  //   let totalBuy = 0;
+  //   count.compras.forEach((price) => {
+  //     totalBuy += price;
+  //   });
+  //   count.saldoTotal -= totalBuy;
+  // });
+  // return contas;
 }
