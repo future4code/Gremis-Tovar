@@ -22,13 +22,14 @@ function pressedButton() {
 }
 
 function createPost() {
-  const postContent = document.getElementById("container-de-posts");
-    postContent.innerHTML += `<div class="post">
-    <h1>${postFinal[0].titulo}</h1>
-    <h3>${postFinal[0].autor}</h3>
-    <p>${postFinal[0].conteudo}</p>
-    <img src=${postFinal[0].imagem}>
-</div>`;
+    let postContent = `<div class="post">
+                        <h1>${postFinal[0].titulo}</h1>
+                        <h3>${postFinal[0].autor}</h3>
+                        <p>${postFinal[0].conteudo}</p>
+                        <img src=${postFinal[0].imagem}>
+                    </div>`;
+    localStorage.setItem('post', postContent)
+    window.open('posts.html', '_blank');
   }
 
 function clearInput() {
