@@ -450,40 +450,34 @@ function retornaPessoasNaoAutorizadas() {
 //Exercício 19 A
 
 const consultas = [
-  {
-    nome: "João",
-    genero: "masculino",
-    cancelada: true,
-    dataDaConsulta: "01/10/2019",
-  },
-  {
-    nome: "Pedro",
-    genero: "masculino",
-    cancelada: false,
-    dataDaConsulta: "02/10/2019",
-  },
-  {
-    nome: "Paula",
-    genero: "feminino",
-    cancelada: true,
-    dataDaConsulta: "03/11/2019",
-  },
-  {
-    nome: "Márcia",
-    genero: "feminino",
-    cancelada: false,
-    dataDaConsulta: "04/11/2019",
-  },
+  { nome: "João", dataDaConsulta: "01/10/2021" },
+  { nome: "Pedro", dataDaConsulta: "02/07/2021" },
+  { nome: "Paula", dataDaConsulta: "03/11/2021" },
+  { nome: "Márcia", dataDaConsulta: "04/05/2021" },
 ];
 
 function ordenaPorNome() {
-  // implemente sua lógica aqui
+  //-------------------------------------
+  consultas.sort(function (a, b) {
+    var nomeA = a.nome.toLowerCase(),
+      nomeB = b.nome.toLowerCase();
+    if (nomeA < nomeB) return -1;
+    if (nomeA > nomeB) return 1;
+    return 0;
+  });
+  return consultas;
 }
 
 //Exercício 19 B
 
 function ordenaPorData() {
-  // implemente sua lógica aqui
+  //--------------------------------------
+  consultas.sort(function (a, b) {
+    let aa = a.dataDaConsulta.split("/").reverse().join(),
+      bb = b.dataDaConsulta.split("/").reverse().join();
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
+  });
+  return consultas;
 }
 
 //Exercício 20
