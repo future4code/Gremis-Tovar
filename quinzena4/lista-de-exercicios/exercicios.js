@@ -62,6 +62,7 @@ function retornaNumerosPares(array) {
 //Exercício 4
 
 function retornaMaiorNumero(array) {
+  //-----------------------------------
   let valorMaximo = 0;
   for (let i = 0; i < array.length; i++) {
     if (array[i] > valorMaximo) {
@@ -69,6 +70,16 @@ function retornaMaiorNumero(array) {
     }
   }
   return valorMaximo;
+  //-----------------------------------
+  // let valorMaximo = 0;
+  // let i = 0;
+  // while (i < array.length) {
+  //   if (array[i] > valorMaximo) {
+  //     valorMaximo = array[i];
+  //   }
+  //   i++;
+  // }
+  // return valorMaximo;
 }
 
 //Exercício 5
