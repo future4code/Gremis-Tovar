@@ -502,26 +502,168 @@ const consultas = [
 
 function ordenaPorNome() {
   //-------------------------------------
-  consultas.sort(function (a, b) {
-    var nomeA = a.nome.toLowerCase(),
-      nomeB = b.nome.toLowerCase();
-    if (nomeA < nomeB) return -1;
-    if (nomeA > nomeB) return 1;
-    return 0;
-  });
-  return consultas;
+  // consultas.sort(function (a, b) {
+  //   var nomeA = a.nome.toLowerCase(),
+  //     nomeB = b.nome.toLowerCase();
+  //   if (nomeA < nomeB) return -1;
+  //   if (nomeA > nomeB) return 1;
+  //   return 0;
+  // });
+  // return consultas;
+
+  //-------------------------------------
+  let letters = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "X",
+    "Y",
+    "Z",
+  ];
+  let orderedConsults = [];
+  let finalConsults = [];
+
+  for (let i = 0; i < consultas.length; i++) {
+    for (let j = 0; j < letters.length; j++) {
+      if (letters[j] == consultas[i].nome[0]) {
+        if (orderedConsults[j] == undefined) {
+          orderedConsults[j] = consultas[i];
+        } else {
+          orderedConsults[j + 1] = consultas[i];
+          let secondLetterPositionA = 0;
+          let secondLetterPositionB = 0;
+          for (let k = 0; k < letters.length; k++) {
+            if (orderedConsults[j].nome[1] == letters[k].toLowerCase()) {
+              secondLetterPositionA = k;
+            }
+            if (orderedConsults[j + 1].nome[1] == letters[k].toLowerCase()) {
+              secondLetterPositionB = k;
+            }
+          }
+
+          let firstPosition = orderedConsults[j];
+          let secondPosition = orderedConsults[j + 1];
+          if (secondLetterPositionA > secondLetterPositionB) {
+            orderedConsults[j] = secondPosition;
+            orderedConsults[j + 1] = firstPosition;
+          }
+        }
+      }
+    }
+  }
+
+  orderedConsults.forEach((item) => finalConsults.push(item));
+
+  return finalConsults;
 }
 
 //Exercício 19 B
 
 function ordenaPorData() {
   //--------------------------------------
-  consultas.sort(function (a, b) {
-    let aa = a.dataDaConsulta.split("/").reverse().join(),
-      bb = b.dataDaConsulta.split("/").reverse().join();
-    return aa < bb ? -1 : aa > bb ? 1 : 0;
-  });
-  return consultas;
+  // consultas.sort(function (a, b) {
+  //   let aa = a.dataDaConsulta.split("/").reverse().join(),
+  //     bb = b.dataDaConsulta.split("/").reverse().join();
+  //   return aa < bb ? -1 : aa > bb ? 1 : 0;
+  // });
+  // return consultas;
+
+  //---------------------------------------
+  const consultas = [
+    { nome: "João", dataDaConsulta: "01/10/2021" },
+    { nome: "Pedro", dataDaConsulta: "02/07/2021" },
+    { nome: "Paula", dataDaConsulta: "03/11/2021" },
+    { nome: "Márcia", dataDaConsulta: "04/05/2021" },
+  ];
+
+  //Conver to mm/dd/yyyy
+  for (let i = 0; i < consultas.length; i++) {
+    let datearray = consultas[i].dataDaConsulta.split("/");
+    let newDate = datearray[1] + "/" + datearray[0] + "/" + datearray[2];
+    consultas[i].dataDaConsulta = newDate;
+  }
+
+  // compare first two elements and the last two elements
+  let order = [];
+  for (let i = 0; i < consultas.length; i++) {
+    if (i == 0) {
+      if (
+        new Date(consultas[i].dataDaConsulta).getTime() >
+        new Date(consultas[i + 1].dataDaConsulta).getTime()
+      ) {
+        order.push(consultas[i + 1]);
+        order.push(consultas[i]);
+      } else {
+        order.push(consultas[i]);
+        order.push(consultas[i + 1]);
+      }
+    }
+    if (i == consultas.length - 1) {
+      if (
+        new Date(consultas[i - 1].dataDaConsulta).getTime() >
+        new Date(consultas[i].dataDaConsulta).getTime()
+      ) {
+        order.push(consultas[i]);
+        order.push(consultas[i - 1]);
+      }
+    }
+  }
+
+  // compare the two minor elements and the two bigger elements
+  let finalConsults = [];
+  for (let i = 0; i < order.length; i++) {
+    if (i == 0) {
+      if (
+        new Date(order[i].dataDaConsulta).getTime() >
+        new Date(order[order.length - 2].dataDaConsulta).getTime()
+      ) {
+        finalConsults.push(order[order.length - 2]);
+        finalConsults.push(order[i]);
+      } else {
+        finalConsults.push(order[order.length - 2]);
+        finalConsults.push(order[i]);
+      }
+    }
+    if (i == 1) {
+      if (
+        new Date(order[1].dataDaConsulta).getTime() >
+        new Date(order[order.length - 1].dataDaConsulta).getTime()
+      ) {
+        finalConsults.push(order[order.length - 1]);
+        finalConsults.push(order[1]);
+      } else {
+        finalConsults.push(order[1]);
+        finalConsults.push(order[order.length - 1]);
+      }
+    }
+  }
+
+  //Conver to dd/mm/yyyy
+  for (let i = 0; i < finalConsults.length; i++) {
+    let datearray = finalConsults[i].dataDaConsulta.split("/");
+    let newDate = datearray[1] + "/" + datearray[0] + "/" + datearray[2];
+    finalConsults[i].dataDaConsulta = newDate;
+  }
+  return finalConsults;
 }
 
 //Exercício 20
@@ -536,7 +678,6 @@ const contas = [
 ];
 
 function atualizaSaldo() {
-
   //---------------------------------
   for (let i = 0; i < contas.length; i++) {
     let totalBuy = 0;
