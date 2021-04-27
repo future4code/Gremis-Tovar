@@ -13,10 +13,25 @@ body {
 header {
   background-color: orange;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
-  height: 10%;
+  padding: 0 16px;
+  height: 56px;
+}
+
+header input {
+  border: none;
+  box-shadow: none;
+  font-family: "Roboto", "Noto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 4px;
+  padding: 5px;
+  max-width: 50%;
+  text-align: inherit;
+  width: 100%;
 }
 
 main {
@@ -24,14 +39,20 @@ main {
   display: flex;
 }
 
+nav hr{
+  margin-top: 40px;
+  margin-left: -12px;
+}
+
 .menu-vertical {
   flex-basis: 200px;
-  border-right-style: solid;
   border-right-width: thin;
+  margin-left: -1vw;
 }
 
 .botoes-meunu-vertical {
   list-style-type: none;
+  margin-top: 6vh;
 }
 
 .painel-de-videos {
@@ -87,10 +108,10 @@ main {
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-template-columns: 1fr;
-  border-style: solid;
+  margin: 15px;
   border-width: thin;
   align-items: start;
-  justify-items: stretch;
+  justify-items: center;
 }
 
 footer {
@@ -100,6 +121,7 @@ footer {
   padding: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .box-pagina-principal > img {
@@ -109,4 +131,6 @@ footer {
 
 h4 {
   margin-left: 20px;
+  position: relative;
+  cursor: pointer;
 }
