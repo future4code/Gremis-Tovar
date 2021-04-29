@@ -1,16 +1,16 @@
 .bigcard-container {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     border: 1px solid black;
-    padding: 20px 10px;
+    padding: 20px 30px;
     margin-bottom: 10px;
     height: 200px;
 }
 
 .bigcard-container > img {
-    width: 70px;
-    margin-right: 10px;
-    border-radius: 50%;
+    width: 160px;
+    margin-right: 20px;
 }
 
 .bigcard-container h4 {
