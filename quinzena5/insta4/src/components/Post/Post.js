@@ -10,6 +10,7 @@ import iconeGuardarBranco from "../../img/turned_in_not_black_24dp.svg";
 import iconeGuardarPreto from "../../img/turned_in_black_24dp.svg";
 import iconeCompartilhar from "../../img/send_black_24dp.svg";
 import { SecaoComentario } from "../SecaoComentario/SecaoComentario";
+import { SecaoCompartilhar } from "../SecaoCompartir.js/SecaoCompartilhar";
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -50,7 +51,10 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0,
     guardado: false,
+    compartilhar: false,
   };
+
+  // Curtir Post
 
   onClickCurtida = () => {
     let novoNumeroCurtidas;
@@ -67,11 +71,33 @@ class Post extends React.Component {
     });
   };
 
+  // Guardar Post
+
   onClickGuardar = () => {
     this.setState({
       guardado: !this.state.guardado,
     });
   };
+
+  // Compartir Post
+
+  onClickCompartilhar = () => {
+    this.setState({
+      compartilhar: !this.state.compartilhar,
+    });
+  };
+
+  aoEnviarCompartilharInstagram = () => {
+    console.log("Post compartilhado no Instagram");
+  };
+  aoEnviarCompartilharFacebook = () => {
+    console.log("Post compartilhado no Facebook");
+  };
+  aoEnviarCompartilharTwitter = () => {
+    console.log("Post compartilhado no Twitter");
+  };
+
+  // Comentar Post
 
   onClickComentario = () => {
     this.setState({
@@ -87,6 +113,7 @@ class Post extends React.Component {
   };
 
   render() {
+    // Curtir Post
     let iconeCurtida;
 
     if (this.state.curtido) {
@@ -94,6 +121,8 @@ class Post extends React.Component {
     } else {
       iconeCurtida = iconeCoracaoBranco;
     }
+
+    // Guardar Post
 
     let iconeGuardado;
 
@@ -103,11 +132,27 @@ class Post extends React.Component {
       iconeGuardado = iconeGuardarBranco;
     }
 
+    // Comentar Post
+
     let componenteComentario;
 
     if (this.state.comentando) {
       componenteComentario = (
         <SecaoComentario aoEnviar={this.aoEnviarComentario} />
+      );
+    }
+
+    // Compartilhar Post
+
+    let componenteCompartilhar;
+
+    if (this.state.compartilhar) {
+      componenteCompartilhar = (
+        <SecaoCompartilhar
+          aoCompartirInstagram={this.aoEnviarCompartilharInstagram}
+          aoCompartirFacebook={this.aoEnviarCompartilharFacebook}
+          aoCompartirTwitter={this.aoEnviarCompartilharTwitter}
+        />
       );
     }
 
@@ -129,7 +174,7 @@ class Post extends React.Component {
 
           <IconeComContador
             icone={iconeCompartilhar}
-            onClickIcone={this.onClickComentario}
+            onClickIcone={this.onClickCompartilhar}
           />
 
           <IconeComContador
@@ -144,6 +189,7 @@ class Post extends React.Component {
           />
         </PostFooter>
         {componenteComentario}
+        {componenteCompartilhar}
       </PostContainer>
     );
   }
