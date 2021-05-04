@@ -25,6 +25,17 @@ export class SecaoCompartilhar extends Component {
     this.setState({ valorInputCompartilhar: e.target.value });
   };
 
+  aoCompartirInstagram = () => {
+    console.log(`Post compartilhado no Instagram com a mensagem: ${this.state.valorInputCompartilhar}`);
+  };
+  aoCompartirFacebook = () => {
+    console.log(`Post compartilhado no Facebook com a mensagem: ${this.state.valorInputCompartilhar}`);
+  };
+  aoCompartirTwitter = () => {
+    console.log(`Post compartilhado no Twitter com a mensagem: ${this.state.valorInputCompartilhar}`);
+  };
+
+
   render() {
     return (
       <CommentContainer>
@@ -32,13 +43,13 @@ export class SecaoCompartilhar extends Component {
           placeholder={"Resenha"}
           onChange={this.onChangeCompartilhar}
         ></InputResenha>
-        <button onClick={this.props.aoCompartirInstagram}>
+        <button onClick={this.aoCompartirInstagram}>
           <img src={instagram} width={"100%"} />
         </button>
-        <button onClick={this.props.aoCompartirFacebook}>
+        <button onClick={this.aoCompartirFacebook}>
           <img src={facebook} width={"100%"} />
         </button>
-        <button onClick={this.props.aoCompartirTwitter}>
+        <button onClick={this.aoCompartirTwitter}>
           <img src={twitter} width={"100%"} />
         </button>
       </CommentContainer>

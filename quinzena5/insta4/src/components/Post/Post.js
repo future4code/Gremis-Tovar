@@ -87,16 +87,6 @@ class Post extends React.Component {
     });
   };
 
-  aoEnviarCompartilharInstagram = () => {
-    console.log("Post compartilhado no Instagram");
-  };
-  aoEnviarCompartilharFacebook = () => {
-    console.log("Post compartilhado no Facebook");
-  };
-  aoEnviarCompartilharTwitter = () => {
-    console.log("Post compartilhado no Twitter");
-  };
-
   // Comentar Post
 
   onClickComentario = () => {
@@ -147,13 +137,7 @@ class Post extends React.Component {
     let componenteCompartilhar;
 
     if (this.state.compartilhar) {
-      componenteCompartilhar = (
-        <SecaoCompartilhar
-          aoCompartirInstagram={this.aoEnviarCompartilharInstagram}
-          aoCompartirFacebook={this.aoEnviarCompartilharFacebook}
-          aoCompartirTwitter={this.aoEnviarCompartilharTwitter}
-        />
-      );
+      componenteCompartilhar = <SecaoCompartilhar />;
     }
 
     return (
