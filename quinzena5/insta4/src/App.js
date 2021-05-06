@@ -9,6 +9,32 @@ const MainContainer = styled.div`
   align-items: center;
 `;
 
+const InputPost = styled.input`
+  margin: 20px;
+  display: flex;
+  border: 1px dotted #999;
+  border-radius: 0;
+`;
+
+const AdicionarPost = styled.button`
+  margin: 20px;
+  display: flex;
+  background: #eb94d0;
+  background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  border-radius: 28px;
+  text-shadow: 3px 2px 1px #9daef5;
+  box-shadow: 6px 5px 24px #666666;
+  font-family: Arial;
+  color: #fafafa;
+  font-size: 10px;
+  padding: 8px;
+  text-decoration: none;
+`;
+
 class App extends React.Component {
   state = {
     posts: [
@@ -37,7 +63,7 @@ class App extends React.Component {
     const novoPost = {
       nome: this.state.valorInputNome,
       foto: this.state.valorInputFoto,
-      postfoto: this.state.valorInputPostfoto
+      postfoto: this.state.valorInputPostfoto,
     };
 
     const novosPosts = [...this.state.posts, novoPost];
@@ -52,7 +78,7 @@ class App extends React.Component {
     this.setState({ valorInputFoto: event.target.value });
   };
 
-  onChangeInputPostfoto= (event) => {
+  onChangeInputPostfoto = (event) => {
     this.setState({ valorInputPostfoto: event.target.value });
   };
 
@@ -60,7 +86,6 @@ class App extends React.Component {
     const novoPost = [...this.state.posts.reverse()];
     const listaDePost = novoPost.map((post) => {
       return (
-            
         <Post
           nomeUsuario={post.nome}
           fotoUsuario={post.foto}
@@ -72,22 +97,22 @@ class App extends React.Component {
     return (
       <MainContainer>
         <div>
-        <input
-          value={this.state.valorInputNome}
-          onChange={this.onChangeInputNome}
-          placeholder={"Nome do usuário"}
-        />
-        <input
-          value={this.state.valorInputFoto}
-          onChange={this.onChangeInputFoto}
-          placeholder={"url da imagem do usuário "}
-        />
-        <input
-          value={this.state.valorInputPostfoto}
-          onChange={this.onChangeInputPostfoto}
-          placeholder={"url da imagem do post"}
-        />
-        <button onClick={this.adicionaPost}>Adicionar</button>
+          <InputPost
+            value={this.state.valorInputNome}
+            onChange={this.onChangeInputNome}
+            placeholder={"Nome do usuário"}
+          />
+          <InputPost
+            value={this.state.valorInputFoto}
+            onChange={this.onChangeInputFoto}
+            placeholder={"url da imagem do usuário "}
+          />
+          <InputPost
+            value={this.state.valorInputPostfoto}
+            onChange={this.onChangeInputPostfoto}
+            placeholder={"url da imagem do post"}
+          />
+          <AdicionarPost onClick={this.adicionaPost}>Adicionar</AdicionarPost>
         </div>
         <div>{listaDePost}</div>
       </MainContainer>
