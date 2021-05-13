@@ -46,7 +46,17 @@ class App extends React.Component {
     });
   };
 
-  criaTarefa = () => {};
+  criaTarefa = () => {
+    if(this.state.inputValue){
+      const tarefa = {
+        id: Date.now(),
+        texto: this.state.inputValue,
+        completa: false
+      }
+      const novasTarefas = [...this.state.tarefas, tarefa];
+      this.setState({tarefas: novasTarefas});
+    }
+  };
 
   selectTarefa = (id) => {};
 
