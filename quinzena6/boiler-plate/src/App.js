@@ -21,24 +21,31 @@ const InputsContainer = styled.div`
 class App extends React.Component {
   state = {
     tarefas: [
-      {
-        id: Date.now(),
-        texto: "Texto da tarefa",
-        completa: false,
-      },
-      {
-        id: Date.now(),
-        texto: "Outra tarefa",
-        completa: true,
-      },
+      // {
+      //   id: Date.now(),
+      //   texto: "Texto da tarefa",
+      //   completa: false,
+      // },
+      // {
+      //   id: Date.now(),
+      //   texto: "Otro texto",
+      //   completa: true,
+      // },
     ],
     inputValue: "",
-    filtro: "pendentes",
+    filtro: "",
   };
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
+  }
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (localStorage.getItem("tarefas"))
+      this.setState({
+        tarefas: JSON.parse(localStorage.getItem("tarefas")),
+      });
+  }
 
   onChangeInput = (event) => {
     this.setState({
@@ -47,20 +54,38 @@ class App extends React.Component {
   };
 
   criaTarefa = () => {
-    if(this.state.inputValue){
+    if (this.state.inputValue) {
       const tarefa = {
         id: Date.now(),
         texto: this.state.inputValue,
-        completa: false
-      }
+        completa: false,
+      };
       const novasTarefas = [...this.state.tarefas, tarefa];
-      this.setState({tarefas: novasTarefas});
+      this.setState({ tarefas: novasTarefas });
+      this.setState({
+        inputValue: "",
+      });
     }
   };
 
-  selectTarefa = (id) => {};
+  selectTarefa = (id) => {
+    const selecionarTarefa = this.state.tarefas.map((tarefa) => {
+      if (tarefa.id === id) {
+        const novaTarefa = {
+          ...tarefa,
+          completa: true,
+        };
+        return novaTarefa;
+      } else {
+        return tarefa;
+      }
+    });
+    this.setState({ tarefas: selecionarTarefa });
+  };
 
-  onChangeFilter = (event) => {};
+  onChangeFilter = (event) => {
+    this.setState({ filtro: event.target.value });
+  };
 
   render() {
     const listaFiltrada = this.state.tarefas.filter((tarefa) => {
@@ -86,7 +111,7 @@ class App extends React.Component {
         <InputsContainer>
           <label>Filtro</label>
           <select value={this.state.filter} onChange={this.onChangeFilter}>
-            <option value="">Nenhum</option>
+            <option value="">Todas</option>
             <option value="pendentes">Pendentes</option>
             <option value="completas">Completas</option>
           </select>
@@ -95,6 +120,7 @@ class App extends React.Component {
           {listaFiltrada.map((tarefa) => {
             return (
               <Tarefa
+                key={tarefa.id}
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
               >
