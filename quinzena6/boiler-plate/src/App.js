@@ -8,6 +8,7 @@ const TarefaList = styled.ul`
 `;
 
 const Tarefa = styled.li`
+  cursor: pointer;
   text-align: left;
   text-decoration: ${({ completa }) => (completa ? "line-through" : "none")};
 `;
@@ -17,21 +18,25 @@ const InputsContainer = styled.div`
   grid-auto-flow: column;
   gap: 10px;
 `;
+const SearchContainer = styled.div`
+  padding: 0 20px;
+  margin: 20px;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.75);
+`;
+const SearchContainerInput = styled.input`
+  color: black;
+  outline: none;
+  border-radius: 30px;
+  height: 30px;
+  border: 0;
+  padding-left: 40px;
+  padding-right: 20px;
+  font-size: 1rem;
+`;
 
 class App extends React.Component {
   state = {
-    tarefas: [
-      // {
-      //   id: Date.now(),
-      //   texto: "Texto da tarefa",
-      //   completa: false,
-      // },
-      // {
-      //   id: Date.now(),
-      //   texto: "Otro texto",
-      //   completa: true,
-      // },
-    ],
+    tarefas: [],
     inputValue: "",
     filtro: "",
   };
@@ -61,10 +66,7 @@ class App extends React.Component {
         completa: false,
       };
       const novasTarefas = [...this.state.tarefas, tarefa];
-      this.setState({ tarefas: novasTarefas });
-      this.setState({
-        inputValue: "",
-      });
+      this.setState({ tarefas: novasTarefas, inputValue: "" });
     }
   };
 
@@ -83,8 +85,41 @@ class App extends React.Component {
     this.setState({ tarefas: selecionarTarefa });
   };
 
+  editTarefa = (id) => {};  
+
+  deletTarefa = (id) => {
+    const selecionarTarefa = this.state.tarefas.filter((tarefa) => {
+      return tarefa.id !== id;
+    });
+    this.setState({ tarefas: selecionarTarefa });
+  };
+
+  cleanAll = () => {
+    const selecionarTodo = [...this.state.tarefas].filter((tarefa) => {
+      return tarefa !== tarefa;
+    });
+    this.setState({ tarefas: selecionarTodo });
+  };
+
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value });
+  };
+
+  onSearchSubmit = (text) => {
+    // if (!text) {
+    //   const procuraTarefa = [...this.state.tarefas];
+    //   this.setState({ tarefas: procuraTarefa  });
+    // } else {
+    //   const procuraTarefa = this.state.tarefas.filter((tarefa) => {
+    //     let enteredText = text.toLowerCase().trim();
+    //     let name = tarefa.texto.toLowerCase();
+    //     if (!enteredText.length) {
+    //       return false;
+    //     }
+    //     return name.includes(enteredText);
+    //   });
+    //   this.setState({ tarefas: procuraTarefa });
+    // }
   };
 
   render() {
@@ -102,9 +137,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Lista de tarefas</h1>
+        <SearchContainer>
+          <SearchContainerInput
+            type="text"
+            placeholder="Procurar tarefa..."
+            onChange={(e) => this.onSearchSubmit(e.target.value)}
+          />
+        </SearchContainer>
         <InputsContainer>
           <input value={this.state.inputValue} onChange={this.onChangeInput} />
           <button onClick={this.criaTarefa}>Adicionar</button>
+          <button onClick={this.cleanAll}>Limpar Tudo</button>
         </InputsContainer>
         <br />
 
@@ -123,8 +166,10 @@ class App extends React.Component {
                 key={tarefa.id}
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
+                onDoubleClick={() => this.deletTarefa(tarefa.id)}
               >
                 {tarefa.texto}
+                <button onClick={this.editTarefa}>Editar</button>
               </Tarefa>
             );
           })}
