@@ -85,7 +85,6 @@ export default class CreateUser extends React.Component {
       name: this.state.name,
       email: this.state.email,
     };
-    console.log(body)
     axios.post(baseUrl, body, configAxios).then((res) => {
         console.log(res);
         alert("O usuário foi criado com sucesso!");
@@ -101,9 +100,6 @@ export default class CreateUser extends React.Component {
     return (
       <div>
         <LoginBox>
-          <LoginBoxUser>
-            <LoginBoxUserInput type="text" placeholder="Procurar usuário" />
-          </LoginBoxUser>
           <LoginBoxTitle>Criar Usuário</LoginBoxTitle>
             <LoginBoxUser>
               <LoginBoxUserInput

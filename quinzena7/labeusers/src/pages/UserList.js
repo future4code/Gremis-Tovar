@@ -16,6 +16,18 @@ const LoginBox = styled.div`
   border-radius: 10px;
 `;
 
+const LoginBoxUserInput = styled.input`
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+`;
+
 const LoginBoxUser = styled.div`
   position: relative;
   display: flex;
@@ -60,6 +72,7 @@ const FormButton = styled.button`
 
 const ButtonUser = styled.button`
   margin: 10px;
+  cursor: pointer;
   color: #0c131e;
   background: red;
 `;
@@ -72,17 +85,19 @@ const Change = styled.div`
 export default class UserList extends React.Component {
   state = {
     users: [],
+    inputSearch: "",
+    userList: [],
   };
 
   componentDidMount() {
-    this.getUsers();
+    this.getAllUsers();
   }
 
-  getUsers = () => {
+  getAllUsers = () => {
     axios
       .get(baseUrl, configAxios)
       .then((res) => {
-        this.setState({ users: res.data });
+        this.setState({ users: res.data, userList: res.data });
       })
       .catch((err) => {
         console.log(err);
@@ -90,15 +105,13 @@ export default class UserList extends React.Component {
   };
 
   deleteUser = (id) => {
-    if (window.confirm("Confirma se você deseja realmente apagar este usuário")) {
+    if (
+      window.confirm("Confirma se você deseja realmente apagar este usuário")
+    ) {
       axios
-        .delete(
-          `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-          configAxios
-        )
-        .then((res) => {
-          this.getUsers();
-          console.log(res);
+        .delete(`${baseUrl}/${id}`, configAxios)
+        .then(() => {
+          this.getAllUsers();
         })
         .catch((err) => {
           console.log(err);
@@ -106,14 +119,40 @@ export default class UserList extends React.Component {
     }
   };
 
+  changeUser = (id) => {
+    this.props.changeUser(id);
+    this.props.changePage("userDetails");
+  };
+
+  searchUser = (event) => {
+    if (event.target.value.length === 0) {
+      this.setState({ users: this.state.userList });
+    }
+    this.setState({
+      inputSearch: event.target.value,
+    });
+    this.usersFiltered(event.target.value);
+  };
+
+  usersFiltered = (name) => {
+    axios
+      .get(`${baseUrl}/search?name=${name}&email=`, configAxios)
+      .then((res) => {
+        if (res.data.length > 0) {
+          this.setState({ users: res.data });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     const mapUsers = this.state.users.map((user) => {
       return (
         <div>
           <LoginBoxUser key={user.id}>
-            <LoginBoxUserName
-              onClick={() => this.props.changePage("userDetails")}
-            >
+            <LoginBoxUserName onClick={() => this.changeUser(user.id)}>
               {user.name}
             </LoginBoxUserName>
             <ButtonUser onClick={() => this.deleteUser(user.id)}>
@@ -126,6 +165,14 @@ export default class UserList extends React.Component {
     return (
       <div>
         <LoginBox>
+          <LoginBoxUser>
+            <LoginBoxUserInput
+              type="text"
+              onChange={this.searchUser}
+              value={this.state.inputSearch}
+              placeholder="Procurar usuário"
+            />
+          </LoginBoxUser>
           <LoginBoxTitle>Lista de Usuários</LoginBoxTitle>
           {mapUsers}
         </LoginBox>
