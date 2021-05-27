@@ -1,5 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+// import axios from "axios";
+// import { baseUrl, configAxios } from "../api";
 
 const LoginBox = styled.div`
   position: absolute;
@@ -72,7 +74,28 @@ const Change = styled.div`
   justify-content: center;
 `;
 
-export class UserDetails extends Component {
+export default class UserDetails extends React.Component  {
+
+
+  // deleteUser = (id) => {
+  //   if (window.confirm("Confirma se você deseja realmente apagar este usuário")) {
+  //     axios
+  //       .delete(
+  //         `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+  //         configAxios
+  //       )
+  //       .then((res) => {
+  //         this.getUsers();
+  //         console.log(res);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
+
+
+
   render() {
     return (
       <div>
@@ -81,7 +104,7 @@ export class UserDetails extends Component {
           <LoginBoxUser>
             <LoginBoxUserName>Nome: Gremis Tovar</LoginBoxUserName>
             <LoginBoxUserName>Email: 18993990tovargremis@gmail.com</LoginBoxUserName>
-            <ButtonUserDelete>Deletar</ButtonUserDelete>
+            <ButtonUserDelete >Deletar</ButtonUserDelete>
             <ButtonUserEdit>Editar</ButtonUserEdit>
           </LoginBoxUser>
         </LoginBox>
@@ -94,5 +117,3 @@ export class UserDetails extends Component {
     );
   }
 }
-
-export default UserDetails;

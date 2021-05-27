@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-// import axios from "axios";
-// import { baseUrl, configAxios } from "../api";
+import axios from "axios";
+import { baseUrl, configAxios } from "../api";
 
 const LoginBox = styled.div`
   position: absolute;
@@ -23,8 +23,10 @@ const LoginBoxUser = styled.div`
 `;
 
 const LoginBoxUserName = styled.p`
-  color: white;
+  color: black;
+  background-color: beige;
   cursor: pointer;
+  padding: 10px;
 `;
 
 const LoginBoxTitle = styled.h2`
@@ -67,20 +69,65 @@ const Change = styled.div`
   justify-content: center;
 `;
 
-export class UserList extends Component {
+export default class UserList extends React.Component {
+  state = {
+    users: [],
+  };
+
+  componentDidMount() {
+    this.getUsers();
+  }
+
+  getUsers = () => {
+    axios
+      .get(baseUrl, configAxios)
+      .then((res) => {
+        this.setState({ users: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  deleteUser = (id) => {
+    if (window.confirm("Confirma se você deseja realmente apagar este usuário")) {
+      axios
+        .delete(
+          `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+          configAxios
+        )
+        .then((res) => {
+          this.getUsers();
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   render() {
+    const mapUsers = this.state.users.map((user) => {
+      return (
+        <div>
+          <LoginBoxUser key={user.id}>
+            <LoginBoxUserName
+              onClick={() => this.props.changePage("userDetails")}
+            >
+              {user.name}
+            </LoginBoxUserName>
+            <ButtonUser onClick={() => this.deleteUser(user.id)}>
+              Deletar
+            </ButtonUser>
+          </LoginBoxUser>
+        </div>
+      );
+    });
     return (
       <div>
         <LoginBox>
           <LoginBoxTitle>Lista de Usuários</LoginBoxTitle>
-          <LoginBoxUser>
-            <LoginBoxUserName onClick={() => this.props.changePage("userDetails")}>Usuário</LoginBoxUserName>
-            <ButtonUser>Deletar</ButtonUser>
-          </LoginBoxUser>
-          <LoginBoxUser>
-            <LoginBoxUserName>Usuário</LoginBoxUserName>
-            <ButtonUser>Deletar</ButtonUser>
-          </LoginBoxUser>
+          {mapUsers}
         </LoginBox>
         <Change>
           <FormButton onClick={() => this.props.changePage("createUser")}>
@@ -91,5 +138,3 @@ export class UserList extends Component {
     );
   }
 }
-
-export default UserList;

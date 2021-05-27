@@ -1,5 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { baseUrl, configAxios } from "../api";
 
 const LoginBox = styled.div`
   position: absolute;
@@ -41,7 +43,7 @@ const FormButton = styled.button`
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #0C131E;
+  color: #0c131e;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -53,7 +55,8 @@ const FormButton = styled.button`
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+      0 0 100px #03e9f4;
     cursor: pointer;
   }
 `;
@@ -62,7 +65,38 @@ const Change = styled.div`
   display: flex;
   justify-content: center;
 `;
-export class CreateUser extends Component {
+
+export default class CreateUser extends React.Component {
+  state = {
+    name: "",
+    email: "",
+  };
+
+  inputName = (event) => {
+    this.setState({ name: event.target.value });
+  };
+
+  inputEmail = (event) => {
+    this.setState({ email: event.target.value });
+  };
+
+  createUser = () => {
+    const body = {
+      name: this.state.name,
+      email: this.state.email,
+    };
+    console.log(body)
+    axios.post(baseUrl, body, configAxios).then((res) => {
+        console.log(res);
+        alert("O usuário foi criado com sucesso!");
+        this.setState({ name: "", email: "" });
+      })
+      .catch((err) => {
+        alert("Seu usuário não foi criado!!");
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div>
@@ -71,15 +105,23 @@ export class CreateUser extends Component {
             <LoginBoxUserInput type="text" placeholder="Procurar usuário" />
           </LoginBoxUser>
           <LoginBoxTitle>Criar Usuário</LoginBoxTitle>
-          <form>
             <LoginBoxUser>
-              <LoginBoxUserInput type="text" placeholder="Usuário" />
+              <LoginBoxUserInput
+                type="text"
+                onChange={this.inputName}
+                value={this.state.name}
+                placeholder="Usuário"
+              />
             </LoginBoxUser>
             <LoginBoxUser>
-              <LoginBoxUserInput type="email" placeholder="Email" />
+              <LoginBoxUserInput
+                type="email"
+                onChange={this.inputEmail}
+                value={this.state.email}
+                placeholder="Email"
+              />
             </LoginBoxUser>
-            <FormButton>Criar</FormButton>
-          </form>
+            <FormButton onClick={this.createUser}>Criar</FormButton>
         </LoginBox>
         <Change>
           <FormButton onClick={() => this.props.changePage("userList")}>
@@ -91,4 +133,3 @@ export class CreateUser extends Component {
   }
 }
 
-export default CreateUser;
