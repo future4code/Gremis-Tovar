@@ -2,7 +2,7 @@ import React from "react";
 import CreateUser from "./pages/CreateUser";
 import UserList from "./pages/UserList";
 import UserDetails from "./pages/UserDetails";
-import "./index.css";
+import GlobalStyle from "./GlobalStyle";
 
 export default class App extends React.Component {
   state = {
@@ -29,6 +29,11 @@ export default class App extends React.Component {
   };
 
   render() {
-    return <div>{this.renderPage()}</div>;
+    return (
+      <div>
+        <GlobalStyle />
+        {this.renderPage()}
+      </div>
+    );
   }
 }
