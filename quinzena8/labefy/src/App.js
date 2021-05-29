@@ -1,17 +1,27 @@
 import React from "react";
-import PlaylistsPage from "./components/PlaylistsPage";
-import SearchPlaylist from "./components/SearchPlaylist";
-import MyPlaylists from "./components/MyPlaylists";
-import PlaylistDetails from "./components/PlaylistDetails";
+import PlaylistsPage from "./components/pages/PlaylistsPage";
+import SearchPlaylist from "./components/pages/SearchPlaylist";
+import MyPlaylists from "./components/pages/MyPlaylists";
+import PlaylistDetails from "./components/pages/PlaylistDetails";
+import PlaylistDetailsUser from "./components/pages/PlaylistDetailsUser";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
-import next from "../src/images/control-music/next.svg";
-// import pause from "../src/images/control-music/pause.svg";
-import play from "../src/images/control-music/play.svg";
-import prev from "../src/images/control-music/prev.svg";
+import MusicControls from "./components/MusicControls";
 import GlobalStyle from "./GlobalStyles";
+import styled from "styled-components";
 
-import "./index.css";
+
+const OuterWrap = styled.div`
+  background: grey;
+  height: 100vh;
+  min-height: 100%;
+`;
+
+const AppContainer = styled.div`
+  height: calc(100vh - 90px);
+  background: #131313;
+  display: flex;
+`;
 
 export default class App extends React.Component {
   state = {
@@ -34,6 +44,8 @@ export default class App extends React.Component {
         return <MyPlaylists changePage={this.changePage} />;
       case "playlistDetails":
         return <PlaylistDetails changePage={this.changePage} />;
+      case "playlistDetailsUser":
+        return <PlaylistDetailsUser changePage={this.changePage} />;
       default:
         return <div></div>;
     }
@@ -43,26 +55,13 @@ export default class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        <div className="outerWrap">
-          <div className="App">
+        <OuterWrap>
+          <AppContainer>
             <Nav changePage={this.changePage} />
             <Main renderPage={this.renderPage} />
-          </div>
-          <div className="musicControls">
-            <div className="button-control">
-              <img src={prev} alt="voltar"></img>
-            </div>
-            <div className="button-control">
-              <img src={play} alt="play"></img>
-            </div>
-            {/* <div className="button-control">
-              <img src={pause} alt="pause"></img>
-            </div> */}
-            <div className="button-control">
-              <img src={next} alt="avançar"></img>
-            </div>
-          </div>
-        </div>
+          </AppContainer>
+          <MusicControls />
+        </OuterWrap>
       </div>
     );
   }
