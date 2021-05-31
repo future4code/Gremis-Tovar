@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import play from "../../images/play.png";
+import playlistdefault from "../../playlistdefault.json";
 import styled from "styled-components";
 
 const PageInner = styled.div`
@@ -52,11 +53,6 @@ const CardContentTitle = styled.h3`
   letter-spacing: 0.6px;
 `;
 
-const CardContentDescription = styled.span`
-  font-size: 0.8rem;
-  color: #b3b3b3;
-`;
-
 const CardplayIcon = styled.span`
   width: 40px;
   height: 40px;
@@ -79,185 +75,41 @@ const PlayIconImage = styled.img`
 `;
 
 export class PlaylistPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      sugestions: playlistdefault.sugestions,
+    };
+  }
+
   render() {
     return (
       <PageInner>
-        <CardsWrap>
-          <CardsWrapTitle>Tendência agora</CardsWrapTitle>
-          <CardsWrapInner>
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/151"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/152"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/156"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-          </CardsWrapInner>
-        </CardsWrap>
-
-        <CardsWrap>
-          <CardsWrapTitle>Para escutar na sua casa!!</CardsWrapTitle>
-          <CardsWrapInner>
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/151"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/152"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/156"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-          </CardsWrapInner>
-        </CardsWrap>
-
-        <CardsWrap>
-          <CardsWrapTitle>Bom dia!</CardsWrapTitle>
-          <CardsWrapInner>
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/151"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/152"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-
-            <CardsWrapCard>
-              <CardImage>
-                <ImageCard
-                  src="https://picsum.photos/200/156"
-                  alt="Pic 1"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>un nombre</CardContentTitle>
-                <CardContentDescription>descripcion</CardContentDescription>
-              </CardContent>
-              <CardplayIcon
-                onClick={() => this.props.changePage("playlistDetails")}
-              >
-                <PlayIconImage src={play} alt="play"></PlayIconImage>
-              </CardplayIcon>
-            </CardsWrapCard>
-          </CardsWrapInner>
-        </CardsWrap>
+        {this.state.sugestions.map((sugestion) => (
+          <CardsWrap key={sugestion.id}>
+            <CardsWrapTitle>{sugestion.name}</CardsWrapTitle>
+            <CardsWrapInner>
+            {sugestion.playlists.map((playlist) => (
+              <CardsWrapCard key={playlist.id}>
+                <CardImage>
+                  <ImageCard
+                    src={playlist.image}
+                    alt="Pic 1"
+                  ></ImageCard>
+                </CardImage>
+                <CardContent>
+                  <CardContentTitle>{playlist.name}</CardContentTitle>
+                </CardContent>
+                <CardplayIcon
+                  onClick={() => this.props.changePage({page: "playlistDetails", playlist: playlist})}
+                >
+                  <PlayIconImage src={play} alt="play"></PlayIconImage>
+                </CardplayIcon>
+              </CardsWrapCard>
+            ))}
+            </CardsWrapInner>
+          </CardsWrap>
+        ))}
       </PageInner>
     );
   }

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import play from "../../images/play.png";
 import heart from "../../images/heart-white.png";
-import music from "../../images/music.png";
 import styled from "styled-components";
+import Music from "../Music";
 
 const PlaylistPage = styled.div`
   background-color: rgb(214, 214, 214);
@@ -53,47 +52,6 @@ const PlaylistPageContentTitle = styled.h1`
   line-height: 1;
 `;
 
-const SmallText = styled.p`
-  font-size: 0.9rem;
-  letter-spacing: 0.8px;
-  font-weight: 600;
-`;
-
-const PlaylistPageDesc = styled.div`
-  font-size: 0.9rem;
-  letter-spacing: 0.8px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-`;
-
-const TagLine = styled.p`
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-bottom: 0.5rem;
-`;
-
-const PlaylistPageDescP = styled.p`
-  margin: 0;
-`;
-
-const PlaylistPageDescSpan = styled.p`
-  opacity: 0.7;
-  position: relative;
-  padding-left: 20px;
-  :before {
-    content: "";
-    width: 4px;
-    height: 4px;
-    background: white;
-    overflow: hidden;
-    border-radius: 50%;
-    position: absolute;
-    margin-left: -10px;
-    top: 9px;
-  }
-`;
-
 const PlaylistPageSongs = styled.div`
   background-image: -webkit-gradient(
     linear,
@@ -106,33 +64,6 @@ const PlaylistPageSongs = styled.div`
   height: 100%;
 `;
 
-const PlaylistButtons = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const PlayIcon = styled.span`
-  width: 56px;
-  height: 56px;
-  display: flex;
-  position: absolute;
-  :hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
-
-const PlayIconImages = styled.img`
-  width: 100%;
-  margin-left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
-const IconIcons = styled.div`
-  margin-left: 0.5rem;
-`;
-
 const IconsHeart = styled.div`
   width: 62px;
   height: 62px;
@@ -140,7 +71,8 @@ const IconsHeart = styled.div`
 `;
 
 const IconsHeartImage = styled.img`
-  margin-left: 5vw;
+  margin-left: -4vw;
+  margin-top: 2vh;
   width: 100%;
   cursor: pointer;
 `;
@@ -152,7 +84,7 @@ const SongList = styled.ul`
 const SongListLi = styled.li`
   list-style: none;
   width: 100%;
-  padding: 0.5rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -164,12 +96,6 @@ const SongListLi = styled.li`
 
 const SongIcon = styled.div`
   padding-right: 1rem;
-`;
-
-const SongIconImage = styled.img`
-  fill: rgba(255, 255, 255, 0.7);
-  width: 15px;
-  height: 15px;
 `;
 
 const SongDetailsTitle = styled.h3`
@@ -187,96 +113,42 @@ const SongTime = styled.div`
   margin-left: auto;
 `;
 
-export class PlaylistDetails extends Component {
+export class PlaylistDetailsUser extends Component {
   render() {
+    const playlist = this.props.playlist;
     return (
       <PlaylistPage>
         <MainInner>
           <PlaylistPageInfo>
             <PlaylistPageImage>
-              <PlaylistImage
-                src="https://picsum.photos/200/150"
-                alt="pic"
-              ></PlaylistImage>
+              <PlaylistImage src={playlist.image} alt="pic"></PlaylistImage>
             </PlaylistPageImage>
             <PlaylistPageContent>
-              <SmallText>PLAYLIST</SmallText>
-              <PlaylistPageContentTitle>Es la del Usuario</PlaylistPageContentTitle>
-
-              <TagLine>
-                Minimalista, eletrônico e moderno clássico para se concentrar
-              </TagLine>
-              <PlaylistPageDesc>
-                <PlaylistPageDescP>Labefy</PlaylistPageDescP>
-                <PlaylistPageDescSpan>699,428 likes</PlaylistPageDescSpan>
-                <PlaylistPageDescSpan>4 horas 35 min</PlaylistPageDescSpan>
-              </PlaylistPageDesc>
+              <PlaylistPageContentTitle>
+                {playlist.name}
+              </PlaylistPageContentTitle>
             </PlaylistPageContent>
           </PlaylistPageInfo>
 
           <PlaylistPageSongs>
-            <PlaylistButtons>
-              <PlayIcon>
-                <PlayIconImages src={play} alt="play"></PlayIconImages>
-              </PlayIcon>{" "}
-              <IconIcons>
-                <IconsHeart>
-                  <IconsHeartImage src={heart} alt="play"></IconsHeartImage>
-                </IconsHeart>
-              </IconIcons>
-            </PlaylistButtons>
+            <IconsHeart>
+              <IconsHeartImage src={heart} alt="play"></IconsHeartImage>
+            </IconsHeart>
             <SongList>
-              <SongListLi>
-                <SongIcon>
-                  <SongIconImage src={music} alt="play"></SongIconImage>
-                </SongIcon>
-                <div>
-                  <SongDetailsTitle>Hold Down</SongDetailsTitle>
-                  <SongDetailsSpan>Laura Marling</SongDetailsSpan>
-                </div>
-                <SongTime>
-                  <span>4:07</span>
-                </SongTime>
-              </SongListLi>
-
-              <SongListLi>
-                <SongIcon>
-                  <SongIconImage src={music} alt="play"></SongIconImage>
-                </SongIcon>
-                <div>
-                  <SongDetailsTitle>Hold Down</SongDetailsTitle>
-                  <SongDetailsSpan>Laura Marling</SongDetailsSpan>
-                </div>
-                <SongTime>
-                  <span>4:07</span>
-                </SongTime>
-              </SongListLi>
-
-              <SongListLi>
-                <SongIcon>
-                  <SongIconImage src={music} alt="play"></SongIconImage>
-                </SongIcon>
-                <div>
-                  <SongDetailsTitle>Hold Down</SongDetailsTitle>
-                  <SongDetailsSpan>Laura Marling</SongDetailsSpan>
-                </div>
-                <SongTime>
-                  <span>4:07</span>
-                </SongTime>
-              </SongListLi>
-
-              <SongListLi>
-                <SongIcon>
-                  <SongIconImage src={music} alt="play"></SongIconImage>
-                </SongIcon>
-                <div>
-                  <SongDetailsTitle>Hold Down</SongDetailsTitle>
-                  <SongDetailsSpan>Laura Marling</SongDetailsSpan>
-                </div>
-                <SongTime>
-                  <span>4:07</span>
-                </SongTime>
-              </SongListLi>
+              {playlist.songs.map((song) => (
+                <SongListLi>
+                  <SongIcon>
+                    <Music url={song.song} />
+                  </SongIcon>
+                  <div>
+                    <SongDetailsTitle>{song.name}</SongDetailsTitle>
+                    <SongDetailsSpan>{song.artist}</SongDetailsSpan>
+                  </div>
+                  <SongTime>
+                    <span>{song.duration}</span>
+                  </SongTime>
+                </SongListLi>
+              ))}
             </SongList>
           </PlaylistPageSongs>
         </MainInner>
@@ -284,4 +156,4 @@ export class PlaylistDetails extends Component {
     );
   }
 }
-export default PlaylistDetails;
+export default PlaylistDetailsUser;

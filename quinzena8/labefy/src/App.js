@@ -10,7 +10,6 @@ import MusicControls from "./components/MusicControls";
 import GlobalStyle from "./GlobalStyles";
 import styled from "styled-components";
 
-
 const OuterWrap = styled.div`
   background: grey;
   height: 100vh;
@@ -26,12 +25,20 @@ const AppContainer = styled.div`
 export default class App extends React.Component {
   state = {
     page: "playlistsPage",
+    playlist: {},
   };
 
-  changePage = (page) => {
-    this.setState({
-      page: page,
-    });
+  changePage = (data) => {
+    if (typeof data === "string") {
+      this.setState({
+        page: data,
+      });
+    } else {
+      this.setState({
+        page: data.page,
+        playlist: data.playlist,
+      });
+    }
   };
 
   renderPage = () => {
@@ -43,7 +50,12 @@ export default class App extends React.Component {
       case "myPlaylists":
         return <MyPlaylists changePage={this.changePage} />;
       case "playlistDetails":
-        return <PlaylistDetails changePage={this.changePage} />;
+        return (
+          <PlaylistDetails
+            changePage={this.changePage}
+            playlist={this.state.playlist}
+          />
+        );
       case "playlistDetailsUser":
         return <PlaylistDetailsUser changePage={this.changePage} />;
       default:

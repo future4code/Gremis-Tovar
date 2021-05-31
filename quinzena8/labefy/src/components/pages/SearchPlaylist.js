@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { baseUrlSpotify, configAxiosSpotify } from "../../Apis";
+
 
 const PageInner = styled.div`
   padding: 0.5rem 2rem;
@@ -70,6 +72,21 @@ const SongTime = styled.div`
 `;
 
 export class SearchPlaylist extends Component {
+
+
+ 
+  // searchTrack = (search) => {
+  //   axios
+  //     .get (`${baseUrlSpotify}?q=${search}&type=track&offset=0&limit=20`, configAxiosSpotify)
+  //     .then((res) => {
+  //       this.setState({ tracks: res.data.tracks.items });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.response.data);
+  //       this.setState({ tracks: [] });
+  //     });
+  // };
+
   render() {
     return (
       <PageInner>

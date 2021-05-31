@@ -47,11 +47,6 @@ const CardContentTitle = styled.h3`
   letter-spacing: 0.6px;
 `;
 
-const CardContentDescription = styled.span`
-  font-size: 0.8rem;
-  color: #b3b3b3;
-`;
-
 const CardplayIcon = styled.span`
   width: 40px;
   height: 40px;
@@ -129,9 +124,6 @@ export class MyPlaylists extends Component {
                 </CardImage>
                 <CardContent>
                   <CardContentTitle>{category.name}</CardContentTitle>
-                  <CardContentDescription>
-                    {category.desc}
-                  </CardContentDescription>
                 </CardContent>
                 <CardplayIcon
                   onClick={() => this.props.changePage("playlistDetailsUser")}
