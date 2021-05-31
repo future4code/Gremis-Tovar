@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { baseUrlSpotify, configAxiosSpotify } from "../../Apis";
-
 
 const PageInner = styled.div`
   padding: 0.5rem 2rem;
@@ -72,20 +72,31 @@ const SongTime = styled.div`
 `;
 
 export class SearchPlaylist extends Component {
+  state = {
+    tracks: [],
+    inputSearch: "",
+  };
 
+  searchMusic = (e) => {
+    this.setState({ inputSearch: e.target.value });
+    this.searchTrack(e.target.value);
+  };
 
- 
-  // searchTrack = (search) => {
-  //   axios
-  //     .get (`${baseUrlSpotify}?q=${search}&type=track&offset=0&limit=20`, configAxiosSpotify)
-  //     .then((res) => {
-  //       this.setState({ tracks: res.data.tracks.items });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response.data);
-  //       this.setState({ tracks: [] });
-  //     });
-  // };
+  searchTrack = (search) => {
+    axios
+      .get(
+        `${baseUrlSpotify}?q=${search}&type=track&offset=0&limit=20`,
+        configAxiosSpotify
+      )
+      .then((res) => {
+        console.log(res);
+        this.setState({ tracks: res.data.tracks.items });
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+        this.setState({ tracks: [] });
+      });
+  };
 
   render() {
     return (
@@ -93,24 +104,33 @@ export class SearchPlaylist extends Component {
         <CardsWrap>
           <CardsWrapInner>
             <LoginBoxUser>
-              <LoginBoxUserInput type="text" placeholder="Procurar música" />
+              <LoginBoxUserInput
+                type="text"
+                onChange={this.searchMusic}
+                placeholder="Procurar música"
+              />
             </LoginBoxUser>
           </CardsWrapInner>
-
-          <SongList>
-            <SongListLi>
-              <SongIcon>
-                <h1>+</h1>
-              </SongIcon>
-              <div>
-                <SongDetailsTitle>Hold Down</SongDetailsTitle>
-                <SongDetailsSpan>Laura Marling</SongDetailsSpan>
-              </div>
-              <SongTime>
-                <span>4:07</span>
-              </SongTime>
-            </SongListLi>
-          </SongList>
+          {this.state.tracks.map((item) => (
+            <SongList key={item.id}>
+              <SongListLi>
+                <SongIcon>
+                  <h1>+</h1>
+                </SongIcon>
+                <div>
+                  <SongDetailsTitle>{item.name}</SongDetailsTitle>
+                  <SongDetailsSpan>
+                    {item.artists.map((item) => {
+                      return item.name + " - ";
+                    })}
+                  </SongDetailsSpan>
+                </div>
+                <SongTime>
+                  <span>{((item.duration_ms/63300).toFixed(2)).replace('.',':')}</span>
+                </SongTime>
+              </SongListLi>
+            </SongList>
+          ))}
         </CardsWrap>
       </PageInner>
     );

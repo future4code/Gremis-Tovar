@@ -13,6 +13,6 @@ export const baseUrlSpotify =
 
 export const configAxiosSpotify = {
   headers: {
-    Authorization: "Bearer BQCMx3jDLX2-fUy23JWfgt6OotxK4Kjt-74HIs3LZVckFWUpDxEuOgEMI33wEss3rh2Kril6XkwDtSblJc8_-ClbXohNgZqpvNJ3HsRhyr1E02hV_BifTJYRVy6jkECq0uGmYAkzo4MbmKaQDNHLaOntuFTA-ByYPHc"
+    Authorization: "Bearer BQBmyqZf2-QLjHBYhKiMZBwynBWatvNP-Dv2XND6GM0XKor6SNNoJhLwlVo_pdSrsxc4V8UiLdvoPDiWapNKBVHHt0NKD2NhoR1H3lSOUx8c7C-CQNqikFQ-RDBIp-Tx5FPujr6bW2tzj9Ihonb0nAMZfrXcZ8fA4yEv-71F5rHFUQinElsYErSCUPN52A"
   }
 }
