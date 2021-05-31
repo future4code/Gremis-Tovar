@@ -1,10 +1,7 @@
 <h2 align="center">Labefy</h2>
 
 
-<h3 align="center">
-  <img alt="Labefy"
-    src="" width="380px"/>
-</h3>
+  ![](readme.png)
 <hr/>
 
 

@@ -115,7 +115,7 @@ export class MyPlaylists extends Component {
     return (
       <PageInner>
         <CardsWrap>
-          <h2>Minhas Playlist Personalizadas</h2>
+          <h2>Playlist Personalizadas</h2>
           <CardsWrapInner>
             {listCategories.map((category) => (
               <CardsWrapCard key={category.id}>
