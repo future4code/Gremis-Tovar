@@ -103,7 +103,49 @@ const DeleteIconImage = styled.img`
   margin: auto;
 `;
 
+const LoginBoxUserInput = styled.input`
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 60px;
+  border: none;
+  height: fit-content;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+`;
+
+const FormButton = styled.button`
+  position: relative;
+  padding: 5px 10px;
+  color: #0c131e;
+  font-size: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 20px;
+  :hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+`;
+
+const CardsWrapCardName = styled.div`
+  cursor: pointer;
+  background: #282828;
+  position: relative;
+  border-radius: 10px;
+  display: inline-grid;
+  overflow: hidden;
+  padding: 1.2rem 1.2rem 0.8rem;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+`;
+
 export class MyPlaylists extends Component {
+  state = { addNamePlaylist: false, name: this.props.userPlaylist.name };
 
   deletePlaylist = (id) => {
     if (
@@ -127,6 +169,38 @@ export class MyPlaylists extends Component {
   numberSort() {
     return Math.floor(Math.random() * 100);
   }
+
+  addMusic = () => {
+    this.setState({
+      addNamePlaylist: !this.state.addNamePlaylist,
+    });
+  };
+
+  inputName = (event) => {
+    this.setState({ name: event.target.value });
+  };
+
+  createPlaylist = () => {
+    const body = {
+      name: this.state.name,
+    };
+    axios
+      .post(baseUrlLabefy, body, configAxiosLabefy)
+      .then((res) => {
+        console.log(res);
+        alert("A playlist foi criada com sucesso!");
+        this.setState({ name: "" });
+      })
+      .catch((err) => {
+        alert("Sua playlist não foi criada!!");
+        console.log(err);
+      });
+
+    this.setState({
+      addNamePlaylist: !this.state.addNamePlaylist,
+    });
+    this.props.getAllPlaylists();
+  };
 
   render() {
     return (
@@ -156,18 +230,31 @@ export class MyPlaylists extends Component {
                   <DeleteIconImage src={delet} alt="play"></DeleteIconImage>
                 </CardIconDelete>
               </CardsWrapCard>
-            ))}
-            <CardsWrapCardAdd>
-              <CardImage>
-                <ImageCard
-                  src={add}
-                  alt="Criar Playlist"
-                ></ImageCard>
-              </CardImage>
-              <CardContent>
-                <CardContentTitle>Criar Nova Playlist</CardContentTitle>
-              </CardContent>
-            </CardsWrapCardAdd>
+            ))}{" "}
+            {!this.state.addNamePlaylist && (
+              <CardsWrapCardAdd onClick={this.addMusic}>
+                <CardImage>
+                  <ImageCard src={add} alt="Criar Playlist"></ImageCard>
+                </CardImage>
+                <CardContent>
+                  <CardContentTitle>Criar Nova Playlist</CardContentTitle>
+                </CardContent>
+              </CardsWrapCardAdd>
+            )}
+            {this.state.addNamePlaylist && (
+              <>
+                <CardsWrapCardName>
+                  <LoginBoxUserInput
+                    type="text"
+                    onChange={this.inputName}
+                    value={this.state.name}
+                    placeholder="Nome da Playlist"
+                  />
+                  <FormButton onClick={this.createPlaylist}>Salvar</FormButton>
+                  <FormButton onClick={this.addMusic}>Cancelar</FormButton>
+                </CardsWrapCardName>
+              </>
+            )}
           </CardsWrapInner>
         </CardsWrap>
       </PageInner>
