@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import play from "../../images/play.png";
+import add from "../../images/add.png";
+import delet from "../../images/delete.png";
+import axios from "axios";
+import { baseUrlLabefy, configAxiosLabefy } from "../../Apis";
 import styled from "styled-components";
 
 const PageInner = styled.div`
@@ -17,6 +21,16 @@ const CardsWrapInner = styled.div`
 `;
 
 const CardsWrapCard = styled.div`
+  background: #282828;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1.2rem 1.2rem 0.8rem;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+`;
+
+const CardsWrapCardAdd = styled.div`
+  cursor: pointer;
   background: #282828;
   position: relative;
   border-radius: 10px;
@@ -55,8 +69,8 @@ const CardplayIcon = styled.span`
   margin-left: auto;
   opacity: 0.2;
   position: absolute;
-  right: 1.2rem;
-  bottom: 1.2rem;
+  right: 4rem;
+  bottom: 0.7rem;
   :hover {
     opacity: 1;
     cursor: pointer;
@@ -68,14 +82,50 @@ const PlayIconImage = styled.img`
   margin: auto;
 `;
 
+const CardIconDelete = styled.span`
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+  display: flex;
+  margin-left: auto;
+  opacity: 0.2;
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.2rem;
+  :hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+`;
+
+const DeleteIconImage = styled.img`
+  width: 100%;
+  margin: auto;
+`;
+
 export class MyPlaylists extends Component {
+
+  deletePlaylist = (id) => {
+    if (
+      window.confirm("Confirma se você deseja realmente apagar esta playlist")
+    ) {
+      axios
+        .delete(`${baseUrlLabefy}/${id}`, configAxiosLabefy)
+        .then(() => {
+          this.props.getAllPlaylists();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   componentDidMount() {
     this.props.getAllPlaylists();
   }
 
-  numberSort (){
-    return Math.floor(Math.random() * 100)
+  numberSort() {
+    return Math.floor(Math.random() * 100);
   }
 
   render() {
@@ -87,7 +137,10 @@ export class MyPlaylists extends Component {
             {this.props.userPlaylist.map((playlist) => (
               <CardsWrapCard key={playlist.id}>
                 <CardImage>
-                  <ImageCard src={`https://picsum.photos/${this.numberSort()}/151`} alt="Pic 1"></ImageCard>
+                  <ImageCard
+                    src={`https://picsum.photos/${this.numberSort()}/151`}
+                    alt="Pic 1"
+                  ></ImageCard>
                 </CardImage>
                 <CardContent>
                   <CardContentTitle>{playlist.name}</CardContentTitle>
@@ -97,8 +150,24 @@ export class MyPlaylists extends Component {
                 >
                   <PlayIconImage src={play} alt="play"></PlayIconImage>
                 </CardplayIcon>
+                <CardIconDelete
+                  onClick={() => this.deletePlaylist(playlist.id)}
+                >
+                  <DeleteIconImage src={delet} alt="play"></DeleteIconImage>
+                </CardIconDelete>
               </CardsWrapCard>
             ))}
+            <CardsWrapCardAdd>
+              <CardImage>
+                <ImageCard
+                  src={add}
+                  alt="Criar Playlist"
+                ></ImageCard>
+              </CardImage>
+              <CardContent>
+                <CardContentTitle>Criar Nova Playlist</CardContentTitle>
+              </CardContent>
+            </CardsWrapCardAdd>
           </CardsWrapInner>
         </CardsWrap>
       </PageInner>

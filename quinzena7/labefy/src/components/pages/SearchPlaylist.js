@@ -107,6 +107,7 @@ export class SearchPlaylist extends Component {
     chosen: false,
     inputPlaylist: "",
     selectedMusic: {},
+    idPlaylist: "",
   };
 
   searchMusic = (e) => {
@@ -141,6 +142,14 @@ export class SearchPlaylist extends Component {
       inputPlaylist: event.target.value,
     });
   };
+
+  onChangeSelectPlaylist = (event) => {
+    this.setState({ idPlaylist: event.target.value });
+  };
+
+  componentDidMount() {
+    this.props.getAllPlaylists();
+  }
 
   render() {
     return (
@@ -182,19 +191,31 @@ export class SearchPlaylist extends Component {
         </CardsWrap>
         {this.state.chosen && (
           <div>
-            <SelectInput
-              value={this.state.idPlaylist}
-              onChange={this.onChangeSelectPlaylist}
-            >
-              <option value="">-Selecione playlist-</option>
-            </SelectInput>
+            {this.props.userPlaylist.length === 0 && (
+              <SelectInput>
+                <option value="">-Tem que criar uma Playlist Primeiro-</option>
+              </SelectInput>
+            )}{" "}
+            {this.props.userPlaylist.length !== 0 && (
+              <SelectInput
+                value={this.state.idPlaylist}
+                onChange={this.onChangeSelectPlaylist}
+              >
+                <option value="">-Selecione playlist-</option>
+                {this.props.userPlaylist.map((playlist) => (
+                  <option value={playlist.id}>{playlist.name}</option>
+                ))}
+              </SelectInput>
+            )}
             <LoginBoxUserInput
               key={this.state.selectedMusic.id}
               placeholder={this.state.selectedMusic.name}
+              disabled
             />
             <LoginBoxUserInput
               key={this.state.selectedMusic.artists[0].id}
               placeholder={this.state.selectedMusic.artists[0].name}
+              disabled
             />
             <FormButton>Salvar</FormButton>
             <FormButton onClick={this.chosenMusic}>Cancelar</FormButton>
