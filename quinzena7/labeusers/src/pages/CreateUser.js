@@ -80,20 +80,34 @@ export default class CreateUser extends React.Component {
     this.setState({ email: event.target.value });
   };
 
-  createUser = () => {
+  // createUser = () => {
+  //   const body = {
+  //     name: this.state.name,
+  //     email: this.state.email,
+  //   };
+  //   axios.post(baseUrl, body, configAxios).then((res) => {
+  //       console.log(res);
+  //       alert("O usuário foi criado com sucesso!");
+  //       this.setState({ name: "", email: "" });
+  //     })
+  //     .catch((err) => {
+  //       alert("Seu usuário não foi criado!!");
+  //       console.log(err);
+  //     });
+  // };
+
+  createUser = async () => {
     const body = {
       name: this.state.name,
       email: this.state.email,
     };
-    axios.post(baseUrl, body, configAxios).then((res) => {
-        console.log(res);
-        alert("O usuário foi criado com sucesso!");
-        this.setState({ name: "", email: "" });
-      })
-      .catch((err) => {
-        alert("Seu usuário não foi criado!!");
-        console.log(err);
-      });
+    try {
+      await axios.post(baseUrl, body, configAxios);
+      alert("O usuário foi criado com sucesso!");
+      this.setState({ name: "", email: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {

@@ -93,30 +93,49 @@ export default class UserList extends React.Component {
     this.getAllUsers();
   }
 
-  getAllUsers = () => {
-    axios
-      .get(baseUrl, configAxios)
-      .then((res) => {
-        this.setState({ users: res.data, userList: res.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // getAllUsers = () => {
+  //   axios
+  //     .get(baseUrl, configAxios)
+  //     .then((res) => {
+  //       this.setState({ users: res.data, userList: res.data });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  getAllUsers = async () => {
+    try {
+      const response = await axios.get(baseUrl, configAxios);
+      this.setState({ users: response.data, userList: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  deleteUser = (id) => {
-    if (
-      window.confirm("Confirma se você deseja realmente apagar este usuário")
-    ) {
-      axios
-        .delete(`${baseUrl}/${id}`, configAxios)
-        .then(() => {
-          this.getAllUsers();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+  // deleteUser = (id) => {
+  //   if (
+  //     window.confirm("Confirma se você deseja realmente apagar este usuário")
+  //   ) {
+  //     axios
+  //       .delete(`${baseUrl}/${id}`, configAxios)
+  //       .then(() => {
+  //         this.getAllUsers();
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
+
+  deleteUser = async (id) => {
+    if (window.confirm("Confirma se você deseja realmente apagar este usuário"))
+      try {
+        await axios.delete(`${baseUrl}/${id}`, configAxios);
+        this.getAllUsers();
+      } catch (error) {
+        console.log(error);
+      }
   };
 
   changeUser = (id) => {
