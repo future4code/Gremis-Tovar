@@ -7,6 +7,8 @@ import PlaylistDetailsUser from "./components/pages/PlaylistDetailsUser";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import MusicControls from "./components/MusicControls";
+import axios from "axios";
+import { baseUrlLabefy, configAxiosLabefy } from "./Apis";
 import GlobalStyle from "./GlobalStyles";
 import styled from "styled-components";
 
@@ -26,6 +28,7 @@ export default class App extends React.Component {
   state = {
     page: "playlistsPage",
     playlist: {},
+    userPlaylist: []
   };
 
   changePage = (data) => {
@@ -37,8 +40,20 @@ export default class App extends React.Component {
       this.setState({
         page: data.page,
         playlist: data.playlist,
+        userPlaylist: data.userPlaylist,
       });
     }
+  };
+
+  getAllPlaylists = () => {
+    axios
+      .get(baseUrlLabefy, configAxiosLabefy)
+      .then((res) => {
+        this.setState({ userPlaylist: res.data.result.list });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   renderPage = () => {
@@ -46,9 +61,21 @@ export default class App extends React.Component {
       case "playlistsPage":
         return <PlaylistsPage changePage={this.changePage} />;
       case "searchPlaylist":
-        return <SearchPlaylist changePage={this.changePage} />;
+        return (
+          <SearchPlaylist
+            changePage={this.changePage}
+            getAllPlaylists={this.getAllPlaylists}
+            userPlaylist={this.state.userPlaylist}
+          />
+        );
       case "myPlaylists":
-        return <MyPlaylists changePage={this.changePage} />;
+        return (
+          <MyPlaylists
+            changePage={this.changePage}
+            getAllPlaylists={this.getAllPlaylists}
+            userPlaylist={this.state.userPlaylist}
+          />
+        );
       case "playlistDetails":
         return (
           <PlaylistDetails

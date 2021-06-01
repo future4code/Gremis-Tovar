@@ -71,10 +71,42 @@ const SongTime = styled.div`
   margin-left: auto;
 `;
 
+const SelectInput = styled.select`
+  padding: 10px 10px;
+  text-align: center;
+  margin: 0 0 50px 0;
+  width: 400px;
+  border-radius: 20px;
+`;
+
+const FormButton = styled.button`
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #0c131e;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  margin-left: 20px;
+  letter-spacing: 4px;
+  :hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+`;
+
 export class SearchPlaylist extends Component {
   state = {
     tracks: [],
     inputSearch: "",
+    chosen: false,
+    inputPlaylist: "",
+    selectedMusic: {},
   };
 
   searchMusic = (e) => {
@@ -89,13 +121,25 @@ export class SearchPlaylist extends Component {
         configAxiosSpotify
       )
       .then((res) => {
-        console.log(res);
         this.setState({ tracks: res.data.tracks.items });
       })
       .catch((err) => {
         console.log(err.response.data);
         this.setState({ tracks: [] });
       });
+  };
+
+  chosenMusic = (item) => {
+    this.setState({
+      chosen: !this.state.chosen,
+      selectedMusic: item,
+    });
+  };
+
+  handleinputPlaylist = (event) => {
+    this.setState({
+      inputPlaylist: event.target.value,
+    });
   };
 
   render() {
@@ -112,26 +156,50 @@ export class SearchPlaylist extends Component {
             </LoginBoxUser>
           </CardsWrapInner>
           {this.state.tracks.map((item) => (
-            <SongList key={item.id}>
-              <SongListLi>
-                <SongIcon>
-                  <h1>+</h1>
-                </SongIcon>
-                <div>
-                  <SongDetailsTitle>{item.name}</SongDetailsTitle>
-                  <SongDetailsSpan>
-                    {item.artists.map((item) => {
-                      return item.name + " - ";
-                    })}
-                  </SongDetailsSpan>
-                </div>
-                <SongTime>
-                  <span>{((item.duration_ms/63300).toFixed(2)).replace('.',':')}</span>
-                </SongTime>
-              </SongListLi>
+            <SongList key={item.id} onClick={this.chosenMusic.bind(this, item)}>
+              {!this.state.chosen && (
+                <SongListLi>
+                  <SongIcon>
+                    <h1>+</h1>
+                  </SongIcon>
+                  <div>
+                    <SongDetailsTitle>{item.name}</SongDetailsTitle>
+                    <SongDetailsSpan>
+                      {item.artists.map((item) => {
+                        return " / " + item.name + " / ";
+                      })}
+                    </SongDetailsSpan>
+                  </div>
+                  <SongTime>
+                    <span>
+                      {(item.duration_ms / 63300).toFixed(2).replace(".", ":")}
+                    </span>
+                  </SongTime>
+                </SongListLi>
+              )}
             </SongList>
           ))}
         </CardsWrap>
+        {this.state.chosen && (
+          <div>
+            <SelectInput
+              value={this.state.idPlaylist}
+              onChange={this.onChangeSelectPlaylist}
+            >
+              <option value="">-Selecione playlist-</option>
+            </SelectInput>
+            <LoginBoxUserInput
+              key={this.state.selectedMusic.id}
+              placeholder={this.state.selectedMusic.name}
+            />
+            <LoginBoxUserInput
+              key={this.state.selectedMusic.artists[0].id}
+              placeholder={this.state.selectedMusic.artists[0].name}
+            />
+            <FormButton>Salvar</FormButton>
+            <FormButton onClick={this.chosenMusic}>Cancelar</FormButton>
+          </div>
+        )}
       </PageInner>
     );
   }

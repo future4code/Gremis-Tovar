@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import play from "../../images/play.png";
-// import axios from 'axios'
-// import { baseUrlSpotify, configAxiosSpotify } from "../../Apis";
 import styled from "styled-components";
 
 const PageInner = styled.div`
@@ -71,61 +69,28 @@ const PlayIconImage = styled.img`
 `;
 
 export class MyPlaylists extends Component {
-  state = {
-    dataPlaylist: [
-      {
-        id: 101,
-        name: "Nombre de la playlist",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-      {
-        id: 102,
-        name: "Nombre 1",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-      {
-        id: 103,
-        name: "Nombre 2",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-      {
-        id: 104,
-        name: "Nombre 3",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-      {
-        id: 105,
-        name: "Nombre 4",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-      {
-        id: 106,
-        name: "Nombre 5",
-        img: "https://picsum.photos/200/150",
-        desc: "Minimalista, eletrônico e moderno clássico para se concentrar",
-      },
-    ],
-  };
+
+  componentDidMount() {
+    this.props.getAllPlaylists();
+  }
+
+  numberSort (){
+    return Math.floor(Math.random() * 100)
+  }
 
   render() {
-    const listCategories = [...this.state.dataPlaylist];
     return (
       <PageInner>
         <CardsWrap>
           <h2>Playlist Personalizadas</h2>
           <CardsWrapInner>
-            {listCategories.map((category) => (
-              <CardsWrapCard key={category.id}>
+            {this.props.userPlaylist.map((playlist) => (
+              <CardsWrapCard key={playlist.id}>
                 <CardImage>
-                  <ImageCard src={category.img} alt="Pic 1"></ImageCard>
+                  <ImageCard src={`https://picsum.photos/${this.numberSort()}/151`} alt="Pic 1"></ImageCard>
                 </CardImage>
                 <CardContent>
-                  <CardContentTitle>{category.name}</CardContentTitle>
+                  <CardContentTitle>{playlist.name}</CardContentTitle>
                 </CardContent>
                 <CardplayIcon
                   onClick={() => this.props.changePage("playlistDetailsUser")}
