@@ -29,6 +29,13 @@ const CardsWrapCard = styled.div`
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 `;
 
+const LoginBoxUser = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+`;
+
 const CardsWrapCardAdd = styled.div`
   cursor: pointer;
   background: #282828;
@@ -145,7 +152,12 @@ const CardsWrapCardName = styled.div`
 `;
 
 export class MyPlaylists extends Component {
-  state = { addNamePlaylist: false, name: this.props.userPlaylist.name };
+  state = {
+    addNamePlaylist: false,
+    name: "",
+    inputSearchPlaylist: "",
+    playlists: this.props.userPlaylist,
+  };
 
   deletePlaylist = (id) => {
     if (
@@ -186,8 +198,7 @@ export class MyPlaylists extends Component {
     };
     axios
       .post(baseUrlLabefy, body, configAxiosLabefy)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         alert("A playlist foi criada com sucesso!");
         this.setState({ name: "" });
       })
@@ -202,13 +213,45 @@ export class MyPlaylists extends Component {
     this.props.getAllPlaylists();
   };
 
+  searchNamePlaylist = (event) => {
+    if (event.target.value.length === 0) {
+      this.setState({ playlists: this.props.userPlaylist });
+    } else {
+      this.setState({
+        inputSearchPlaylist: event.target.value,
+      });
+      this.searchPlaylist(event.target.value);
+    }
+  };
+
+  searchPlaylist = (search) => {
+    axios
+      .get(`${baseUrlLabefy}/search?name=${search}`, configAxiosLabefy)
+      .then((res) => {
+        if (res.data.result.playlist.length > 0) {
+          this.setState({ playlists: res.data.result.playlist });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
+    let songs = this.state.playlists.length > 0 ? this.state.playlists : this.props.userPlaylist;
     return (
       <PageInner>
         <CardsWrap>
           <h2>Playlist Personalizadas</h2>
+          <LoginBoxUser>
+            <LoginBoxUserInput
+              type="text"
+              onChange={this.searchNamePlaylist}
+              placeholder="Procurar playlist"
+            />
+          </LoginBoxUser>
           <CardsWrapInner>
-            {this.props.userPlaylist.map((playlist) => (
+            {songs.map((playlist) => (
               <CardsWrapCard key={playlist.id}>
                 <CardImage>
                   <ImageCard
