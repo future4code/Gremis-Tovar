@@ -99,37 +99,50 @@ export default class UserDetails extends React.Component {
     this.getUserById(this.props.user);
   }
 
-  getUserById = (id) => {
-    axios
-      .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-        configAxios
-      )
-      .then((res) => {
-        this.setState({ users: res.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // getUserById = (id) => {
+  //   axios
+  //     .get(`${baseUrl}/${id}`, configAxios)
+  //     .then((res) => {
+  //       this.setState({ users: res.data });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  getUserById = async (id) => {
+    try {
+      const response = await axios.get(`${baseUrl}/${id}`, configAxios);
+      this.setState({ users: response.data });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  deleteUser = (id) => {
-    if (
-      window.confirm("Confirma se você deseja realmente apagar este usuário")
-    ) {
-      axios
-        .delete(
-          `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-          configAxios
-        )
-        .then((res) => {
-          this.getUsers();
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+  // deleteUser = (id) => {
+  //   if (
+  //     window.confirm("Confirma se você deseja realmente apagar este usuário")
+  //   ) {
+  //     axios
+  //       .delete(`${baseUrl}/${id}`, configAxios)
+  //       .then((res) => {
+  //         this.getUsers();
+  //         console.log(res);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
+
+  deleteUser = async (id) => {
+    if (window.confirm("Confirma se você deseja realmente apagar este usuário"))
+      try {
+        await axios.delete(`${baseUrl}/${id}`, configAxios);
+        this.getAllUsers();
+      } catch (error) {
+        console.log(error);
+      }
   };
 
   handleinputName = (event) => {
