@@ -5,16 +5,30 @@ import CharacterDetailsPage from "./pages/CharacterDetailsPage/CharacterDetailsP
 export default class App extends React.Component {
   state = {
     currentScreen: "list",
+    clickedCharacterUrl: "",
+  };
+
+  goToDetailPage = (url) => {
+    this.setState({ currentScreen: "detail", clickedCharacterUrl: url });
+  };
+
+  goToListPage = () => {
+    this.setState({ currentScreen: "list", clickedCharacterUrl: "" });
   };
 
   selectPage = () => {
     switch (this.state.currentScreen) {
       case "list":
-        return <CharacterListPage />;
+        return <CharacterListPage goToDetailPage={this.goToDetailPage} />;
       case "detail":
-        return <CharacterDetailsPage />;
+        return (
+          <CharacterDetailsPage
+            goToListPage={this.goToListPage}
+            url={this.state.clickedCharacterUrl}
+          />
+        );
       default:
-        return <CharacterListPage />;
+        return <CharacterListPage goToDetailPage={this.goToDetailPage} />;
     }
   };
 

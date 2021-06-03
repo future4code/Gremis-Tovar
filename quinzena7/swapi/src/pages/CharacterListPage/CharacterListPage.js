@@ -1,28 +1,32 @@
 import React from "react";
-import axios from "axios";
-import { BASE_URL } from "../../constants/url";
+import { getCharacterList } from "../../services/services"
 import { CharacterCard } from "./styled";
 
 export default class CharacterListPage extends React.Component {
-  state = {
-    characterList: [],
-  };
+    state = {
+        charactersList: []
+    }
 
-  componentDidMount() {
-    this.getCharacterList();
-  }
+    componentDidMount() {
+        getCharacterList(this.saveCharacter)
+    }
 
-  getCharacterList = () => {
-    axios
-      .get(`${BASE_URL}/people`)
-      .then((res) => this.setState({ characterList: res.data.results }))
-      .catch((err) => console.error(err));
-  };
+    saveCharacter = (data) => {
+        this.setState({ charactersList: data })
+    }
 
-  render() {
-    const characters = this.state.characterList.map((person) => {
-      return <CharacterCard key={person.url}>{person.name}</CharacterCard>;
-    });
-    return <p>{characters}</p>;
-  }
+    render() {
+        const characters = this.state.charactersList.map((person) => {
+            return (
+                <CharacterCard
+                    key={person.url}
+                    onClick={() => this.props.goToDetailPage(person.url)}
+                >
+                    {person.name}
+                </CharacterCard>
+            )
+        })
+
+        return <div>{characters}</div>
+    }
 }
