@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { baseUrlSpotify, getTokenSpotify } from "../../Apis";
+import {
+  baseUrlSpotify,
+  getTokenSpotify,
+  baseUrlLabefy,
+  configAxiosLabefy,
+} from "../../Apis";
 
 const PageInner = styled.div`
   padding: 0.5rem 2rem;
@@ -69,7 +74,7 @@ const SongDetailsToken = styled.span`
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin-top: 20px;
-  :hover{
+  :hover {
     cursor: pointer;
     color: blue;
   }
@@ -133,7 +138,7 @@ export class SearchPlaylist extends Component {
     inputSearch: "",
     chosen: false,
     inputPlaylist: "",
-    selectedMusic: {},
+    selectedMusic: [],
     idPlaylist: "",
     inputToken: "",
     token: "",
@@ -193,21 +198,47 @@ export class SearchPlaylist extends Component {
     this.props.getAllPlaylists();
   }
 
+  addTrackToPlaylist = () => {
+    const body = {
+      name: this.state.selectedMusic.name,
+      artist: this.state.selectedMusic.artists[0].name,
+      url: this.state.selectedMusic.external_urls.spotify,
+    };
+    console.log(body);
+    axios
+      .post(
+        `${baseUrlLabefy}/${this.state.idPlaylist}/tracks`,
+        body,
+        configAxiosLabefy
+      )
+      .then((res) => {
+        console.log(res);
+        alert("A música foi adicionada à playlist escolhida!");
+        this.setState({
+          selectedMusic: [],
+        });
+      })
+      .catch((err) => {
+        alert("A musica não foi adicionada!!");
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <PageInner>
         <CardsWrap>
           <CardsWrapInner>
             <SongDetailsToken onClick={() => this.openURL(getTokenSpotify)}>
-              Por gentileza, antes de procurar a música deve solicitar primeiro o Token de Acceso
-              fazendo clique nesta mensagem
-              <LoginBoxUserInput
-                type="text"
-                value={this.state.inputToken}
-                onChange={this.hitToken}
-                placeholder="Cole aqui seu OAuth Token"
-              />
+              Por gentileza, antes de procurar a música deve solicitar primeiro
+              o Token de Acceso fazendo clique nesta mensagem
             </SongDetailsToken>
+            <LoginBoxUserInput
+              type="text"
+              value={this.state.inputToken}
+              onChange={this.hitToken}
+              placeholder="Cole aqui seu OAuth Token"
+            />
             <LoginBoxUser>
               <FormButtonToken onClick={this.tokenRegister}>
                 Registrar Token
@@ -275,7 +306,7 @@ export class SearchPlaylist extends Component {
               placeholder={this.state.selectedMusic.artists[0].name}
               disabled
             />
-            <FormButton>Salvar</FormButton>
+            <FormButton onClick={this.addTrackToPlaylist}>Salvar</FormButton>
             <FormButton onClick={this.chosenMusic}>Cancelar</FormButton>
           </div>
         )}

@@ -7,6 +7,7 @@ const SongIconImage = styled.img`
   fill: rgba(255, 255, 255, 0.7);
   width: 15px;
   height: 15px;
+  cursor: pointer;
 `;
 
 class Music extends Component {

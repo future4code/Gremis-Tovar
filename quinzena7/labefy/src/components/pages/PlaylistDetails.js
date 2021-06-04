@@ -87,7 +87,6 @@ const SongListLi = styled.li`
   padding: 2rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
   transition: background 0.2s ease-in-out;
   :hover {
     background: rgba(255, 255, 255, 0.1);
@@ -109,9 +108,6 @@ const SongDetailsSpan = styled.span`
   font-size: 0.9rem;
 `;
 
-const SongTime = styled.div`
-  margin-left: auto;
-`;
 
 export class PlaylistDetails extends Component {
   render() {
@@ -144,9 +140,6 @@ export class PlaylistDetails extends Component {
                     <SongDetailsTitle>{song.name}</SongDetailsTitle>
                     <SongDetailsSpan>{song.artist}</SongDetailsSpan>
                   </div>
-                  <SongTime>
-                    <span>{song.duration}</span>
-                  </SongTime>
                 </SongListLi>
               ))}
             </SongList>

@@ -28,7 +28,7 @@ export default class App extends React.Component {
   state = {
     page: "playlistsPage",
     playlist: {},
-    userPlaylist: []
+    userPlaylist: [],
   };
 
   changePage = (data) => {
@@ -84,7 +84,12 @@ export default class App extends React.Component {
           />
         );
       case "playlistDetailsUser":
-        return <PlaylistDetailsUser changePage={this.changePage} />;
+        return (
+          <PlaylistDetailsUser
+            changePage={this.changePage}
+            userPlaylist={this.state.userPlaylist}
+          />
+        );
       default:
         return <div></div>;
     }

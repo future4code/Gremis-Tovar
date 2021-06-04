@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import heart from "../../images/heart-white.png";
+import delet from "../../images/delete.png";
 import styled from "styled-components";
 import Music from "../Music";
+import axios from "axios";
+import { baseUrlLabefy, configAxiosLabefy } from "../../Apis";
 
 const PlaylistPage = styled.div`
   background-color: rgb(214, 214, 214);
@@ -87,7 +90,6 @@ const SongListLi = styled.li`
   padding: 2rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
   transition: background 0.2s ease-in-out;
   :hover {
     background: rgba(255, 255, 255, 0.1);
@@ -109,19 +111,67 @@ const SongDetailsSpan = styled.span`
   font-size: 0.9rem;
 `;
 
-const SongTime = styled.div`
+const DeleteIconImage = styled.img`
+  width: 3%;
   margin-left: auto;
+  cursor: pointer;
 `;
 
 export class PlaylistDetailsUser extends Component {
+  state = {
+    tracks: [],
+  };
+
+  componentDidMount() {
+    this.getPlaylistTracks();
+  }
+
+  getPlaylistTracks = () => {
+    axios
+      .get(
+        `${baseUrlLabefy}/${this.props.userPlaylist.id}/tracks`,
+        configAxiosLabefy
+      )
+      .then((res) => {
+        console.log(res);
+        this.setState({ tracks: res.data.result.tracks });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  numberSort() {
+    return Math.floor(Math.random() * 100);
+  }
+
+  removeTrackFromPlaylist = (id) => {
+    if (
+      window.confirm("Confirma se você deseja realmente apagar esta música")
+    ) {
+      axios
+        .delete(`${baseUrlLabefy}/${this.props.userPlaylist.id}/tracks/${id}`, configAxiosLabefy)
+        .then(() => {
+          this.getPlaylistTracks();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   render() {
-    const playlist = this.props.playlist;
+    const playlist = this.props.userPlaylist;
+    console.log(playlist);
     return (
       <PlaylistPage>
         <MainInner>
           <PlaylistPageInfo>
             <PlaylistPageImage>
-              <PlaylistImage src={playlist.image} alt="pic"></PlaylistImage>
+              <PlaylistImage
+                src={`https://picsum.photos/${this.numberSort()}/151`}
+                alt="Pic 1"
+              ></PlaylistImage>
             </PlaylistPageImage>
             <PlaylistPageContent>
               <PlaylistPageContentTitle>
@@ -135,18 +185,16 @@ export class PlaylistDetailsUser extends Component {
               <IconsHeartImage src={heart} alt="play"></IconsHeartImage>
             </IconsHeart>
             <SongList>
-              {playlist.songs.map((song) => (
+              {this.state.tracks.map((song) => (
                 <SongListLi>
                   <SongIcon>
-                    <Music url={song.song} />
+                    <Music url={song.id} />
                   </SongIcon>
-                  <div>
-                    <SongDetailsTitle>{song.name}</SongDetailsTitle>
-                    <SongDetailsSpan>{song.artist}</SongDetailsSpan>
-                  </div>
-                  <SongTime>
-                    <span>{song.duration}</span>
-                  </SongTime>
+                    <div>
+                      <SongDetailsTitle>{song.name}</SongDetailsTitle>
+                      <SongDetailsSpan>{song.artist}</SongDetailsSpan>
+                    </div>
+                    <DeleteIconImage src={delet} alt="play" onClick={() => this.removeTrackFromPlaylist(song.id)}></DeleteIconImage>
                 </SongListLi>
               ))}
             </SongList>

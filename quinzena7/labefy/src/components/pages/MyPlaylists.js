@@ -156,7 +156,7 @@ export class MyPlaylists extends Component {
     addNamePlaylist: false,
     name: "",
     inputSearchPlaylist: "",
-    playlists: this.props.userPlaylist,
+    playlists: "",
   };
 
   deletePlaylist = (id) => {
@@ -238,7 +238,7 @@ export class MyPlaylists extends Component {
   };
 
   render() {
-    let songs = this.state.playlists.length > 0 ? this.state.playlists : this.props.userPlaylist;
+    const songs = this.state.playlists.length > 0 ? this.state.playlists : this.props.userPlaylist;
     return (
       <PageInner>
         <CardsWrap>
@@ -263,7 +263,7 @@ export class MyPlaylists extends Component {
                   <CardContentTitle>{playlist.name}</CardContentTitle>
                 </CardContent>
                 <CardplayIcon
-                  onClick={() => this.props.changePage("playlistDetailsUser")}
+                  onClick={() => this.props.changePage({page: "playlistDetailsUser", userPlaylist: playlist})}
                 >
                   <PlayIconImage src={play} alt="play"></PlayIconImage>
                 </CardplayIcon>
