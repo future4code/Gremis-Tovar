@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { baseUrlSpotify, configAxiosSpotify } from "../../Apis";
+import { baseUrlSpotify, getTokenSpotify } from "../../Apis";
 
 const PageInner = styled.div`
   padding: 0.5rem 2rem;
@@ -13,8 +13,6 @@ const CardsWrap = styled.div`
 
 const CardsWrapInner = styled.div`
   display: grid;
-  grid-gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
 `;
 
 const LoginBoxUser = styled.div`
@@ -28,7 +26,7 @@ const LoginBoxUserInput = styled.input`
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
-  margin-bottom: 30px;
+  margin-top: 60px;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
@@ -67,6 +65,16 @@ const SongDetailsSpan = styled.span`
   font-size: 0.9rem;
 `;
 
+const SongDetailsToken = styled.span`
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-top: 20px;
+  :hover{
+    cursor: pointer;
+    color: blue;
+  }
+`;
+
 const SongTime = styled.div`
   margin-left: auto;
 `;
@@ -100,6 +108,25 @@ const FormButton = styled.button`
   }
 `;
 
+const FormButtonToken = styled.button`
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #0c131e;
+  font-size: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 20px 0;
+  :hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+`;
+
 export class SearchPlaylist extends Component {
   state = {
     tracks: [],
@@ -108,6 +135,20 @@ export class SearchPlaylist extends Component {
     inputPlaylist: "",
     selectedMusic: {},
     idPlaylist: "",
+    inputToken: "",
+    token: "",
+  };
+
+  openURL = (url) => {
+    window.open(url);
+  };
+
+  hitToken = (e) => {
+    this.setState({ inputToken: e.target.value });
+  };
+
+  tokenRegister = () => {
+    this.setState({ token: this.state.inputToken });
   };
 
   searchMusic = (e) => {
@@ -117,10 +158,11 @@ export class SearchPlaylist extends Component {
 
   searchTrack = (search) => {
     axios
-      .get(
-        `${baseUrlSpotify}?q=${search}&type=track&offset=0&limit=20`,
-        configAxiosSpotify
-      )
+      .get(`${baseUrlSpotify}?q=${search}&type=track&offset=0&limit=20`, {
+        headers: {
+          Authorization: `Bearer ${this.state.token}`,
+        },
+      })
       .then((res) => {
         this.setState({ tracks: res.data.tracks.items });
       })
@@ -156,6 +198,21 @@ export class SearchPlaylist extends Component {
       <PageInner>
         <CardsWrap>
           <CardsWrapInner>
+            <SongDetailsToken onClick={() => this.openURL(getTokenSpotify)}>
+              Por gentileza, antes de procurar a música deve solicitar primeiro o Token de Acceso
+              fazendo clique nesta mensagem
+              <LoginBoxUserInput
+                type="text"
+                value={this.state.inputToken}
+                onChange={this.hitToken}
+                placeholder="Cole aqui seu OAuth Token"
+              />
+            </SongDetailsToken>
+            <LoginBoxUser>
+              <FormButtonToken onClick={this.tokenRegister}>
+                Registrar Token
+              </FormButtonToken>
+            </LoginBoxUser>
             <LoginBoxUser>
               <LoginBoxUserInput
                 type="text"
@@ -164,6 +221,7 @@ export class SearchPlaylist extends Component {
               />
             </LoginBoxUser>
           </CardsWrapInner>
+
           {this.state.tracks.map((item) => (
             <SongList key={item.id} onClick={this.chosenMusic.bind(this, item)}>
               {!this.state.chosen && (
