@@ -105,7 +105,7 @@ export class PlaylistDetailsUser extends Component {
               {this.state.tracks.map((song) => (
                 <SongListLi>
                   <SongIcon>
-                    <Music url={song.url} />
+                    <Music url={song} />
                   </SongIcon>
                   <div>
                     <SongDetailsTitle>{song.name}</SongDetailsTitle>
