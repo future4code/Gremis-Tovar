@@ -11,38 +11,27 @@
 - React Js 
 - React Components
 - Styled Components
-
-## ⚙️ Estrutura do Projeto
-
-- Arquivo `.gitignore`
-- Arquivo `package.json`
-- Arquivo `package-lock.json`
-- Pasta `node_modules`: Armazena os pacotes das dependências que definimos no arquivo package.json. Também deve ser observado que este diretório é definido dentro de .gitignore para que todas as dependências infinitas não sejam carregadas para o repositório Git. Portanto, quem baixar o projeto instalará as dependências [diretamente da web](https://www.npmjs.com/)
-- Pasta `public`: Ele contém os arquivos estáticos que nos permitirão montar o aplicativo.
-- Pasta `src` (source): A pasta src é a pasta onde nosso código React está localizado.
+- Axios
 
 ## ⚙️ Explicação da Aplicação
 
-O aplicativo possui 4 componentes:
+O site começa na página inicial (Inicio) onde existem listas de reprodução padrões e dentro delas também músicas predeterminadas, elas são organizadas em linhas e colunas e são compostas por cartões que contêm uma imagem, o título da lista de reprodução e um botão de reprodução, o que leva aos detalhes da lista de reprodução, nesses detalhes estão a música.
 
+A navegação fica do lado esquerdo, podemos encontrar o link que nos levará a buscar músicas e playlists customizadas pelo usuário.
 
+A busca por música (Procurar) é construída usando primeiro a API do spotify. Por isso o usuário será recebido por duas decisôes, a primeira é se quer adicionar uma música de forma manual, onde vai ser desplegado um input, onde tem que escrever nome da música, artista e URL (a mesma reproduz audio com formatos determinado). Depois vai ter dois entradas, em uma deverá colocar o token de acesso para que o Spotify possa liberar a música que o usuário deseja pesquisar, após colocar o token e clicar, ele poderá iniciar a pesquisa para a música por Nome.
 
-## ⚙️ Pasta src ou Source:
+Aparecerá uma lista que mostra o nome da música e dos artistas, quando o usuário clicar dentro de uma outra página se abrirá, onde o usuário decidirá salvar a respectiva música e em qual playlist deseja fazê-lo. Essa solicitação de salvamento é feita por meio da API labefy, assim como as demais solicitações. Depois da música estar criada, por qualquer das formas, pode ir até a playlist e reproduzir cada uma delas.
 
-- Arquivo Index.js:
-O conteúdo do arquivo index.js tem as seguintes funcionalidades:
+É importante mencionar que se o usuário não criou uma lista de reprodução, terá que fazê-lo primeiro.
 
-*Linha 1:* importa o módulo React que, como vimos, está  dentro do arquivo package.json e nos permitirá criar interfaces.
+Isso é feito na próxima referência, que são suas listas de reprodução(Suas Playlits). Nesta página o usuário pode criar, excluir e visualizar os detalhes das listas de reprodução, a apresentação é semelhante às listas de reprodução da página inicial (nela o usuário não pode fazer ação nenhuma).
 
-*Linha 2:* importa o módulo React-dom, o qual também encontra-se dentro do arquivo package.json, que nos permitirá criar interfaces para o navegador / web.
+Uma vez que o usuário criou uma lista de reprodução e salvou as músicas, ele poderá ver os detalhes da lista de reprodução clicando no ícone de reprodução ou play.
 
-*Linha 3:* consiste da importação do arquivo index.css.
+As músicas são apresentadas em linhas distribuidas em filas, no cabeçalho tem nome e a imagem de referência da lista de reprodução no título.
 
-*Linha 4:* temos a importação de App que está chamando o arquivo App.js no diretório src.
-
-*Linha 6:* linha usada pelo React, que adiciona o código que falta ao documento HTML (a imagem, o parágrafo e o link). O que ReactDOM.render realmente faz (que eu quero pintar, onde eu quero pintá-lo) é adicionar um componente dentro do elemento do elemento com id "root" de index.html usando a instrução JavaScript document.getElementById ("root") .
-
-- Arquivo App.js: é o componente pai da nossa aplicação. Nele estarão a maioria das funções que permitem a funcionalidade de nossa aplicação, ele passará propriedades aos componentes filhos.
+Nesta página o usuário pode ver o nome da música e do artista, excluí-los e clicar em like na playlist.
 
 
 ##  Instalação
@@ -53,10 +42,14 @@ O conteúdo do arquivo index.js tem as seguintes funcionalidades:
 Clone este repositório em sua máquina:
 
 ```bash
-$ git clone https://github.com/future4code/
+$ git clone https://github.com/future4code/Gremis-Tovar.git
 ```
 
-cd `` e rode:
+cd `Gremis-Tovar`
+
+cd `quinzena7`
+
+cd `labefy` e rode:
 
 ```bash
 npm install
@@ -64,6 +57,10 @@ npm install
 
 ```bash
 npm install styled-components
+```
+
+```bash
+npm install axios
 ```
 
 para iniciar:
@@ -78,17 +75,18 @@ npm run start
 ##  Conclusão
 
 Este projeto Labefy corresponde ao Módulo 5 do curso Labenu, onde iniciamos a exploração da biblioteca React.
-No final do projeto tentamos usar e praticar todo o conteúdo visto em cada sessão da aula:
+No final do projeto tentei usar e praticar todo o conteúdo visto em cada sessão da aula:
 
-- Ciclo de vida dos componentes
-- Coerção de tipos não Javascript
-- Ternário
-- Curto circuito
-- Renderização condicional
-- Armazenamento local
-- Técnicas de depuração e hardware
+- Conceitos de Networking (front end, back end, APIs, protocolos, REST)
+- Protocolos HTTP e HTTPS
+- Postman
+- axios
+- Assincronicidade e Promises
+- .then e .catch
+- async e await
+- Integrações com APIs públicas
 
-É importante mencionar que também procuramos colocar em prática técnicas, códigos e conselhos encontrados na documentação e na web. Ainda há muito por andar, mas no geral ficamos felizes com o resultado, sem mais ao momento,
+É importante mencionar que também procurei colocar em prática técnicas, códigos e conselhos encontrados na documentação e na web. Ainda há muito por andar, mas no geral fiquei feliz com o resultado, sem mais ao momento,
 
 Atenciosamente,
 
