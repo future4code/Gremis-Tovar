@@ -1,14 +1,14 @@
 import React from "react";
-import PlaylistsPage from "./components/pages/PlaylistsPage";
-import SearchPlaylist from "./components/pages/SearchPlaylist";
-import MyPlaylists from "./components/pages/MyPlaylists";
-import PlaylistDetails from "./components/pages/PlaylistDetails";
-import PlaylistDetailsUser from "./components/pages/PlaylistDetailsUser";
+import PlaylistsPage from "./pages/PlaylistsPage/PlaylistsPage";
+import SearchPlaylist from "./pages/SearchPlaylist/SearchPlaylist";
+import MyPlaylists from "./pages/MyPlaylists/MyPlaylists";
+import PlaylistDetails from "./pages/PlaylistDetails/PlaylistDetails";
+import PlaylistDetailsUser from "./pages/PlaylistDetailsUser/PlaylistDetailsUser";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import MusicControls from "./components/MusicControls";
 import axios from "axios";
-import { baseUrlLabefy, configAxiosLabefy } from "./Apis";
+import { baseUrlLabefy, configAxiosLabefy } from "./constants/Apis";
 import GlobalStyle from "./GlobalStyles";
 import styled from "styled-components";
 
@@ -33,6 +33,7 @@ export default class App extends React.Component {
 
   changePage = (data) => {
     if (typeof data === "string") {
+      this.getAllPlaylists();
       this.setState({
         page: data,
       });
@@ -81,6 +82,7 @@ export default class App extends React.Component {
           <PlaylistDetails
             changePage={this.changePage}
             playlist={this.state.playlist}
+            getAllPlaylists={this.getAllPlaylists}
           />
         );
       case "playlistDetailsUser":

@@ -1,136 +1,28 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import {
   baseUrlSpotify,
   getTokenSpotify,
   baseUrlLabefy,
   configAxiosLabefy,
-} from "../../Apis";
-
-const PageInner = styled.div`
-  padding: 0.5rem 2rem;
-`;
-
-const CardsWrap = styled.div`
-  padding-bottom: 1.8rem;
-`;
-
-const CardsWrapInner = styled.div`
-  display: grid;
-`;
-
-const LoginBoxUser = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const LoginBoxUserInput = styled.input`
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-top: 60px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-`;
-
-const SongList = styled.ul`
-  padding: 0;
-`;
-
-const SongListLi = styled.li`
-  list-style: none;
-  width: 100%;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-  :hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-`;
-
-const SongIcon = styled.div`
-  padding-right: 1rem;
-`;
-
-const SongDetailsTitle = styled.h3`
-  margin: 0;
-  font-weight: 600;
-  font-size: 1rem;
-`;
-
-const SongDetailsSpan = styled.span`
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-`;
-
-const SongDetailsToken = styled.span`
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-  margin-top: 20px;
-  :hover {
-    cursor: pointer;
-    color: blue;
-  }
-`;
-
-const SongTime = styled.div`
-  margin-left: auto;
-`;
-
-const SelectInput = styled.select`
-  padding: 10px 10px;
-  text-align: center;
-  margin: 0 0 50px 0;
-  width: 400px;
-  border-radius: 20px;
-`;
-
-const FormButton = styled.button`
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #0c131e;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  margin-top: 40px;
-  margin-left: 20px;
-  letter-spacing: 4px;
-  :hover {
-    background: #03e9f4;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-`;
-
-const FormButtonToken = styled.button`
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #0c131e;
-  font-size: 10px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  margin: 20px 0;
-  :hover {
-    background: #03e9f4;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-`;
+} from "../../constants/Apis";
+import {
+  PageInner,
+  CardsWrap,
+  CardsWrapInner,
+  LoginBoxUser,
+  LoginBoxUserInput,
+  SongList,
+  SongListLi,
+  SongIcon,
+  SongDetailsTitle,
+  SongDetailsSpan,
+  SongDetailsToken,
+  SongTime,
+  SelectInput,
+  FormButton,
+  FormButtonToken,
+} from "./Styled";
 
 export class SearchPlaylist extends Component {
   state = {
@@ -204,7 +96,6 @@ export class SearchPlaylist extends Component {
       artist: this.state.selectedMusic.artists[0].name,
       url: this.state.selectedMusic.external_urls.spotify,
     };
-    console.log(body);
     axios
       .post(
         `${baseUrlLabefy}/${this.state.idPlaylist}/tracks`,
@@ -302,8 +193,8 @@ export class SearchPlaylist extends Component {
               disabled
             />
             <LoginBoxUserInput
-              key={this.state.selectedMusic.artists[0].id}
-              placeholder={this.state.selectedMusic.artists[0].name}
+              key={this.state.selectedMusic.artists? this.state.selectedMusic.artists[0].id : ''}
+              placeholder={this.state.selectedMusic.artists ? this.state.selectedMusic.artists[0].name : ''}
               disabled
             />
             <FormButton onClick={this.addTrackToPlaylist}>Salvar</FormButton>
