@@ -65,7 +65,7 @@ export const SongDetailsSpan = styled.span`
 export const SongDetailsToken = styled.span`
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
-  margin-top: 20px;
+  margin-top: 80px;
   :hover {
     cursor: pointer;
     color: blue;
