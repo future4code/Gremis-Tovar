@@ -1,0 +1,538 @@
+{
+    "sugestions": [
+      {
+        "id": "01",
+        "name": "Tendência agora",
+        "playlists": [
+          {
+            "id": "001",
+            "name": "Ouvir a qualquer hora",
+            "image": "https://picsum.photos/201/151",
+            "songs": [
+              {
+                "name": "Princess",
+                "artist": "Ramzoid",
+                "song": "http://spoti4.future4.com.br/1.mp3",
+                "duration": "2:54"
+              },
+              {
+                "name": "New Day",
+                "artist": "Bertysolo",
+                "song": "http://spoti4.future4.com.br/2.mp3",
+                "duration": "3:02"
+              },
+              {
+                "name": "Breathe",
+                "artist": "Slenderbeats",
+                "song": "http://spoti4.future4.com.br/3.mp3",
+                "duration": "2:08"
+              },
+              {
+                "name": "Royal",
+                "artist": "Slenderbeats",
+                "song": "http://spoti4.future4.com.br/4.mp3",
+                "duration": "3:26"
+              },
+              {
+                "name": "Concrete",
+                "artist": "JHS Pedals",
+                "song": "http://spoti4.future4.com.br/5.mp3",
+                "duration": "1:36"
+              }
+            ]
+          },
+          {
+            "id": "002",
+            "name": "Dim dim dim",
+            "image": "https://picsum.photos/202/152",
+            "songs": [
+              {
+                "name": "Thinking",
+                "artist": "Electro",
+                "song": "http://spoti4.future4.com.br/6.mp3",
+                "duration": "2:18"
+              },
+              {
+                "name": "Forcé",
+                "artist": "Dako",
+                "song": "http://spoti4.future4.com.br/7.mp3",
+                "duration": "3:18"
+              },
+              {
+                "name": "Fou le feu",
+                "artist": "Samolow",
+                "song": "http://spoti4.future4.com.br/8.mp3",
+                "duration": "2:15"
+              }
+            ]
+          },
+          {
+            "id": "003",
+            "name": "Nas quartas feiras",
+            "image": "https://picsum.photos/203/153",
+            "songs": [
+              {
+                "name": "Home",
+                "artist": "JHS Pedals",
+                "song": "http://spoti4.future4.com.br/9.mp3",
+                "duration": "2:19"
+              },
+              {
+                "name": "Cats and Gats",
+                "artist": "Dyalla",
+                "song": "http://spoti4.future4.com.br/10.mp3",
+                "duration": "3:09"
+              },
+              {
+                "name": "Demoiselle",
+                "artist": "Polly Macfadden",
+                "song": "http://spoti4.future4.com.br/11.mp3",
+                "duration": "3:23"
+              },
+              {
+                "name": "Outside Visitors",
+                "artist": "Sarah Illstrumentalist",
+                "song": "http://spoti4.future4.com.br/12.mp3",
+                "duration": "2:19"
+              }
+            ]
+          },
+          {
+            "id": "004",
+            "name": "Envolvimento diferente",
+            "image": "https://picsum.photos/204/154",
+            "songs": [
+              {
+                "name": "One Night Away",
+                "artist": "Patrick Patrikios",
+                "song": "http://spoti4.future4.com.br/13.mp3",
+                "duration": "3:20"
+              },
+              {
+                "name": "The Computer Has Feelings",
+                "artist": "JHS Pedals",
+                "song": "http://spoti4.future4.com.br/15.mp3",
+                "duration": "4:41"
+              },
+              {
+                "name": "Luke's Rage",
+                "artist": "DJ Williams",
+                "song": "http://spoti4.future4.com.br/16.mp3",
+                "duration": "2:55"
+              }
+            ]
+          },
+          {
+            "id": "005",
+            "name": "Devagarinho",
+            "image": "https://picsum.photos/205/155",
+            "songs": [
+              {
+                "name": "Silent Observer",
+                "artist": "Sarah Illstrumentalist",
+                "song": "http://spoti4.future4.com.br/17.mp3",
+                "duration": "2:31"
+              },
+              {
+                "name": "On My Way",
+                "artist": "Gio Gio",
+                "song": "http://spoti4.future4.com.br/18.mp3",
+                "duration": "2:58"
+              },
+              {
+                "name": "T'as Où Les Vaches?",
+                "artist": "Dan Bodan",
+                "song": "http://spoti4.future4.com.br/19.mp3",
+                "duration": "2:24"
+              },
+              {
+                "name": "Sage",
+                "artist": "Slenderbeats",
+                "song": "http://spoti4.future4.com.br/20.mp3",
+                "duration": "3:24"
+              },
+              {
+                "name": "The Battle Of 1066",
+                "artist": "Patrick Patrikios",
+                "song": "http://spoti4.future4.com.br/21.mp3",
+                "duration": "2:02"
+              },
+              {
+                "name": "When Gods Pontificate",
+                "artist": "Dan Bodan",
+                "song": "http://spoti4.future4.com.br/22.mp3",
+                "duration": "2:12"
+              }
+            ]
+          },
+          {
+            "id": "006",
+            "name": "Aquele 1%",
+            "image": "https://picsum.photos/206/156",
+            "songs": [
+              {
+                "name": "Échappé",
+                "artist": "Dan Bodan",
+                "song": "http://spoti4.future4.com.br/23.mp3",
+                "duration": "2:40"
+              },
+              {
+                "name": "Middle-Kick",
+                "artist": "Les Winner's",
+                "song": "http://spoti4.future4.com.br/24.mp3",
+                "duration": "3:55"
+              },
+              {
+                "name": "Salt",
+                "artist": "Floor Cry",
+                "song": "http://spoti4.future4.com.br/25.mp3",
+                "duration": "1:42"
+              },
+              {
+                "name": "Glory Be",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/26.mp3",
+                "duration": "2:32"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "02",
+        "name": "Para escutar na sua casa",
+        "playlists": [
+          {
+            "id": "001",
+            "name": "Velha guarda",
+            "image": "https://picsum.photos/211/151",
+            "songs": [
+              {
+                "name": "La vie Continue",
+                "artist": "Dondre",
+                "song": "http://spoti4.future4.com.br/27.mp3",
+                "duration": "2:04"
+              },
+              {
+                "name": "Sociopathe",
+                "artist": "Skarib",
+                "song": "http://spoti4.future4.com.br/28.mp3",
+                "duration": "3:55"
+              },
+              {
+                "name": "Happytoseeyou",
+                "artist": "Sarah Illstrumentalist",
+                "song": "http://spoti4.future4.com.br/30.mp3",
+                "duration": "2:19"
+              }
+            ]
+          },
+          {
+            "id": "002",
+            "name": "Nada é nunca mais",
+            "image": "https://picsum.photos/212/152",
+            "songs": [
+              {
+                "name": "Craftywerk",
+                "artist": "Lazar 111",
+                "song": "http://spoti4.future4.com.br/31.mp3",
+                "duration": "2:24"
+              },
+              {
+                "name": "Stars and Constellations",
+                "artist": "Jim Huerta",
+                "song": "http://spoti4.future4.com.br/32.mp3",
+                "duration": "2:21"
+              },
+              {
+                "name": "Marche",
+                "artist": "Dako",
+                "song": "http://spoti4.future4.com.br/33.mp3",
+                "duration": "2:47"
+              }
+            ]
+          },
+          {
+            "id": "003",
+            "name": "Indispensável",
+            "image": "https://picsum.photos/213/153",
+            "songs": [
+              {
+                "name": "Cruise With Me",
+                "artist": "Patrick Patrikios",
+                "song": "http://spoti4.future4.com.br/34.mp3",
+                "duration": "2:50"
+              },
+              {
+                "name": "Midnight Sun",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/35.mp3",
+                "duration": "2:30"
+              },
+              {
+                "name": "Mexico",
+                "artist": "Gio Gio",
+                "song": "http://spoti4.future4.com.br/36.mp3",
+                "duration": "2:36"
+              }
+            ]
+          },
+          {
+            "id": "004",
+            "name": "O início do fim",
+            "image": "https://picsum.photos/214/154",
+            "songs": [
+              {
+                "name": "Keep Going",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/37.mp3",
+                "duration": "2:48"
+              },
+              {
+                "name": "Mongrel Dance",
+                "artist": "Dan Bodan",
+                "song": "http://spoti4.future4.com.br/38.mp3",
+                "duration": "1:51"
+              },
+              {
+                "name": "Tranquil Waters",
+                "artist": "Rebel Outcast",
+                "song": "http://spoti4.future4.com.br/39.mp3",
+                "duration": "2:41"
+              }
+            ]
+          },
+          {
+            "id": "005",
+            "name": "Amanhecer",
+            "image": "https://picsum.photos/215/155",
+            "songs": [
+              {
+                "name": "Alaska Sky",
+                "artist": "Patrick Patrikios",
+                "song": "http://spoti4.future4.com.br/40.mp3",
+                "duration": "2:05"
+              },
+              {
+                "name": "Static",
+                "artist": "Ramzoid",
+                "song": "http://spoti4.future4.com.br/41.mp3",
+                "duration": "3:20"
+              },
+              {
+                "name": "Canada",
+                "artist": "Gio Gio",
+                "song": "http://spoti4.future4.com.br/42.mp3",
+                "duration": "2:21"
+              }
+            ]
+          },
+          {
+            "id": "006",
+            "name": "Tunz Tunz",
+            "image": "https://picsum.photos/216/156",
+            "songs": [
+              {
+                "name": "Unseen",
+                "artist": "Jawy",
+                "song": "http://spoti4.future4.com.br/43.mp3",
+                "duration": "1:33"
+              },
+              {
+                "name": "Sleepy Wets",
+                "artist": "JHS Pedals",
+                "song": "http://spoti4.future4.com.br/44.mp3",
+                "duration": "1:48"
+              },
+              {
+                "name": "Milky Way",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/45.mp3",
+                "duration": "2:00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "03",
+        "name": "Bom dia!!",
+        "playlists": [
+          {
+            "id": "001",
+            "name": "Live today",
+            "image": "https://picsum.photos/221/151",
+            "songs": [
+              {
+                "name": "Fleas",
+                "artist": "Dyalla",
+                "song": "http://spoti4.future4.com.br/46.mp3",
+                "duration": "3:02"
+              },
+              {
+                "name": "Orange Sun",
+                "artist": "Cinematic Music",
+                "song": "http://spoti4.future4.com.br/47.mp3",
+                "duration": "3:08"
+              },
+              {
+                "name": "Etat d'esprit",
+                "artist": "Rasdep",
+                "song": "http://spoti4.future4.com.br/48.mp3",
+                "duration": "2:32"
+              },
+              {
+                "name": "Franklin's Fight",
+                "artist": "DJ Williams",
+                "song": "http://spoti4.future4.com.br/50.mp3",
+                "duration": "3:38"
+              }
+            ]
+          },
+          {
+            "id": "002",
+            "name": "Innovatis",
+            "image": "https://picsum.photos/222/152",
+            "songs": [
+              {
+                "name": "Doorway",
+                "artist": "Emily",
+                "song": "http://spoti4.future4.com.br/51.mp3",
+                "duration": "3:11"
+              },
+              {
+                "name": "The Loner",
+                "artist": "DJ Williams",
+                "song": "http://spoti4.future4.com.br/52.mp3",
+                "duration": "2:55"
+              },
+              {
+                "name": "Midnight Prophet",
+                "artist": "Sarah Illstrumentalist",
+                "song": "http://spoti4.future4.com.br/53.mp3",
+                "duration": "2:22"
+              },
+              {
+                "name": "Cigarette Solitude",
+                "artist": "Emily",
+                "song": "http://spoti4.future4.com.br/54.mp3",
+                "duration": "3:05"
+              }
+            ]
+          },
+          {
+            "id": "003",
+            "name": "Cósmico",
+            "image": "https://picsum.photos/223/153",
+            "songs": [
+              {
+                "name": "Funky Space Princess",
+                "artist": "Daylla",
+                "song": "http://spoti4.future4.com.br/55.mp3",
+                "duration": "2:27"
+              },
+              {
+                "name": "Concert Etude: Variation 3",
+                "artist": "Robert Ampt",
+                "song": "http://spoti4.future4.com.br/56.mp3",
+                "duration": "2:19"
+              },
+              {
+                "name": "Bisous Sur La Bouche",
+                "artist": "Nizart",
+                "song": "http://spoti4.future4.com.br/57.mp3",
+                "duration": "3:06"
+              }
+            ]
+          },
+          {
+            "id": "004",
+            "name": "Extra bits",
+            "image": "https://picsum.photos/224/154",
+            "songs": [
+              {
+                "name": "Timeless",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/58.mp3",
+                "duration": "2:57"
+              },
+              {
+                "name": "Inkling",
+                "artist": "Slenderbeats",
+                "song": "http://spoti4.future4.com.br/59.mp3",
+                "duration": "3:18"
+              },
+              {
+                "name": "Cowboy Lullaby",
+                "artist": "JHS Pedals",
+                "song": "http://spoti4.future4.com.br/60.mp3",
+                "duration": "3:01"
+              }
+            ]
+          },
+          {
+            "id": "005",
+            "name": "Elevação mental",
+            "image": "https://picsum.photos/225/155",
+            "songs": [
+              {
+                "name": "Simple Step",
+                "artist": "Slenderbeats",
+                "song": "http://spoti4.future4.com.br/61.mp3",
+                "duration": "3:32"
+              },
+              {
+                "name": "On se capte",
+                "artist": "Dalya",
+                "song": "http://spoti4.future4.com.br/62.mp3",
+                "duration": "2:47"
+              },
+              {
+                "name": "Space Navigator",
+                "artist": "Sarah Illstrumentalist",
+                "song": "http://spoti4.future4.com.br/63.mp3",
+                "duration": "2:23"
+              },
+              {
+                "name": "The Undying",
+                "artist": "Mark McGuire",
+                "song": "http://spoti4.future4.com.br/64.mp3",
+                "duration": "3:01"
+              },
+              {
+                "name": "Tense",
+                "artist": "Dumkacha",
+                "song": "http://spoti4.future4.com.br/65.mp3",
+                "duration": "3:05"
+              }
+            ]
+          },
+          {
+            "id": "006",
+            "name": "Canções do céu",
+            "image": "https://picsum.photos/226/156",
+            "songs": [
+              {
+                "name": "Greener Grass",
+                "artist": "Johna",
+                "song": "http://spoti4.future4.com.br/66.mp3",
+                "duration": "3:06"
+              },
+              {
+                "name": "Alien 1963",
+                "artist": "Ramzoid",
+                "song": "http://spoti4.future4.com.br/67.mp3",
+                "duration": "1:45"
+              },
+              {
+                "name": "The Two Seasons",
+                "artist": "Classical",
+                "song": "http://spoti4.future4.com.br/68.mp3",
+                "duration": "1:56"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}
