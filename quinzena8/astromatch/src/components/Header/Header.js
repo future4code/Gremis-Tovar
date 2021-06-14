@@ -4,11 +4,10 @@ import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import PersonIcon from "@material-ui/icons/Person";
 import { IconButton } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { HeaderMain } from "./Styled";
 
 function Header() {
   return (
-    <HeaderMain>
+    <div className="header">
       <Link to="/list">
         <IconButton>
           <PeopleAltIcon className="header_icon" fontSize="large" />
@@ -24,7 +23,7 @@ function Header() {
           <PersonIcon className="header_icon" fontSize="large" />
         </IconButton>
       </Link>
-    </HeaderMain>
+    </div>
   );
 }
 
