@@ -1,0 +1,24 @@
+.swipeButtons .MuiIconButton-root {
+  background-color: white;
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.199);
+}
+
+.swipeButtons .MuiIconButton-root:hover{
+    background-color: white;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.199);
+  }
+
+.swipeButtons_replay {
+  padding: 3vw !important;
+  color: orange !important;
+}
+
+.swipeButtons_close {
+  padding: 3vw !important;
+  color: rgb(214, 76, 57) !important;
+}
+
+.swipeButtons_favorite {
+  padding: 3vw !important;
+  color: rgb(64, 168, 233) !important;
+}
