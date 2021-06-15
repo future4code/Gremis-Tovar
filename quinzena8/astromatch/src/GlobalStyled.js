@@ -29,4 +29,6 @@ a:visited {
 }
 `;
 
+
+
 export default GlobalStyled;

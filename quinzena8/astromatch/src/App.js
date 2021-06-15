@@ -4,10 +4,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TinderCars from "./components/TinderCards/TinderCards";
 import ListMatch from "./components/ListMatch/ListMatch";
 import GlobalStyled from "./GlobalStyled";
+import styled from "styled-components";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1024px;
+  margin: 0 auto;
+`;
 
 function App() {
   return (
-    <div>
+    <Container>
       <GlobalStyled />
       <Router>
         <Header />
@@ -20,7 +30,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 

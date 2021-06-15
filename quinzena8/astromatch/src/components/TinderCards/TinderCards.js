@@ -5,13 +5,16 @@ import {
   CardTinder,
   CardTinderContainer,
   Card,
-  CardTitle,
+  DescriptionProfile,
+  DescriptionProfileH3,
+  DescriptionProfileP,
 } from "./Styled";
 import SwipeButtons from "../SwipeButtons/SwipeButtons";
+import Loading from "../Loading/Loading";
 
 function TinderCards() {
   const [people, setPeople] = useState({});
-  // const [render, setRender] = useState(false);
+  const [render, setRender] = useState(false);
 
   useEffect(function () {
     getProfileToChoose();
@@ -22,7 +25,10 @@ function TinderCards() {
       .get(
         "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/Gremis/person"
       )
-      .then((res) => setPeople(res.data.profile))
+      .then((res) => {
+        setPeople(res.data.profile);
+        setRender(true);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -36,7 +42,7 @@ function TinderCards() {
         "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/Gremis/choose-person",
         body
       )
-      .then((res) => console.log(res))
+      // .then((res) => console.log(res))
       .catch((err) => console.log(err));
     getProfileToChoose();
   };
@@ -53,26 +59,45 @@ function TinderCards() {
 
   return (
     <>
-      <CardTinder>
-        <CardTinderContainer onClick={getProfileToChoose}>
-          <PeopleCard
-            className="swipe"
-            key={people.id}
-            preventSwipe={["up", "down"]}
-          >
+      {render === false ? (
+        <CardTinder>
+          <CardTinderContainer>
             <Card>
-              <h1>{people.name}</h1>
-              <CardTitle>{people.bio}</CardTitle>
-              <img src={people.photo} alt={people.name} />
+              <Loading />
             </Card>
-          </PeopleCard>
-        </CardTinderContainer>
-      </CardTinder>
-      <SwipeButtons
-        choosenPerson={choosenPerson}
-        getProfileToChoose={getProfileToChoose}
-        clearRequests={clear}
-      />
+          </CardTinderContainer>
+        </CardTinder>
+      ) : (
+        <>
+          <CardTinder>
+            <CardTinderContainer onClick={getProfileToChoose}>
+              <PeopleCard
+                className="swipe"
+                key={people.id}
+                preventSwipe={["up", "down"]}
+              >
+                <Card>
+                  <DescriptionProfile>
+                    <h2>Nome: {people.name}</h2>
+                    <DescriptionProfileH3>
+                      Idade: {people.age}
+                    </DescriptionProfileH3>
+                    <DescriptionProfileP>
+                      Biografia: {people.bio}
+                    </DescriptionProfileP>
+                  </DescriptionProfile>
+                  <img src={people.photo} alt={people.name} />
+                </Card>
+              </PeopleCard>
+            </CardTinderContainer>
+          </CardTinder>
+          <SwipeButtons
+            choosenPerson={choosenPerson}
+            getProfileToChoose={getProfileToChoose}
+            clearRequests={clear}
+          />
+        </>
+      )}
     </>
   );
 }

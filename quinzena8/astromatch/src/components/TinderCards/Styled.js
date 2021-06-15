@@ -10,7 +10,8 @@ export const CardTinder = styled.div`
 export const CardTinderContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 5vh;
+  align-items: center;
+  margin-top: 2vh;
 `;
 
 export const Card = styled.div`
@@ -19,20 +20,36 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 20px;
-  height: 100%;
+  width: 50vw;
+  padding: 10px;
+  height: 70vh;
   border-radius: 20px;
   background-position: center;
   box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.356);
+  img {
+    max-width: 40%;
+    max-height: 70%;
+    margin-top: -30px;
+    object-fit: contain;
+  }
 `;
 
-export const CardImage = styled.image`
-  object-fit: cover;
+export const DescriptionProfile = styled.div`
+  position: relative;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin-top: 20px;
 `;
 
-export const CardTitle = styled.h3`
-  position: absolute;
-  bottom: 10px;
-  color: rgb(240, 32, 32);
+export const DescriptionProfileH3 = styled.h3`
+  margin-top: -10px;
 `;
+
+export const DescriptionProfileP = styled.p`
+  margin-top: -50px;
+  padding: 40px;
+`;
+

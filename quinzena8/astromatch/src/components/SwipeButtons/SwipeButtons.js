@@ -14,6 +14,7 @@ function SwipeButtons(props) {
       <IconButton className="swipeButtons_close" onClick={props.getProfileToChoose}>
         <CloseIcon
           font="large"
+          alt="Reiniciar Astromatch"
         />
       </IconButton>
       <IconButton className="swipeButtons_favorite" onClick={props.choosenPerson}>

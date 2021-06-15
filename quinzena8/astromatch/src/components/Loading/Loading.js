@@ -1,15 +1,14 @@
 import styled, { keyframes } from "styled-components";
 import React from "react";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import { Box } from "@material-ui/core";
 const fadeIn = keyframes`
   0% {
-   
     opacity: 0;
   }
   99% {
     opacity: 1;
-    
   }
 `;
 const SiteLoading = styled.div`
@@ -52,11 +51,24 @@ function Loading() {
   return (
     <SiteLoading>
       <Box color="primary.main">
-        <span class="material-icons">favorite</span>
-        <span class="material-icons">favorite</span>
-        <span class="material-icons">favorite</span>
-        <span class="material-icons">favorite</span>
-        <span class="material-icons">favorite</span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
+        <span>
+          <FavoriteIcon font="large" />
+        </span>
       </Box>
     </SiteLoading>
   );
