@@ -1,17 +1,17 @@
 <h2 align="center">Astromatch</h2>
 
 ## ⚙️ Tecnologias Usadas:
+
 - CSS3
-- JavaScript 
-- React Js 
+- JavaScript
+- React Js
 - React-Router-Dom
 - Styled Components
 - Material UI
 - React Tinder Card
 - Axios
 
-##  Instalação
-
+## Instalação
 
 ## 🏁 Para rodar o projeto:
 
@@ -61,9 +61,7 @@ para iniciar:
 npm run start
 ```
 
-
 <br/>
-
 
 ## ⚙️ Explicação da Aplicação
 
@@ -80,11 +78,14 @@ O ícone do X é pressionado quando não gostamos do personagem e a imagem vai p
 E pressionamos o terceiro ícone para fazer match com o personagem. Ao voltar para a página onde eles estão listados, o caractere que acabamos de encontrar deve aparecer nela.
 
 As requisições implementadas foram:
+
 - Get profile to choose (pegar perfil para escolher - funcionalidade ubicada na tela principal que sucede imediatamente ao renderizar o site).
 - Choose Person (escolher pessoa - funcionalidade ubicada na tela principal quando clicamos no ícone de coração azul).
 - Get Matches (pegar matches - funcionalidade ubicada na tela das listas dos perfis).
--  Clear (limpar - funcionalidade ubicada na tela principal quando clicamos no ícone de reiniciar).
+- Clear (limpar - funcionalidade ubicada na tela principal quando clicamos no ícone de reiniciar).
 
+Podem dar uma olhada em um prototipo do aplicativo neste endereço:
+https://astromatch-gre.surge.sh/
 
 Sem mais delongas, fico atenta à correções e emissão de comentários.
 
