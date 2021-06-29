@@ -14,7 +14,7 @@ export const DescriptionTripH1 = styled.h1`
 `;
 
 export const ContainerForm = styled.form`
-  background: #fff9ee;
+  background: white;
   border-radius: 24px;
   width: 770px;
   height: 460px;
@@ -22,16 +22,38 @@ export const ContainerForm = styled.form`
   padding: 10px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormMain = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  margin: 15px;
+  width: 100%;
 `;
 
 export const FormImage = styled.div``;
+
+export const ImageAvatar = styled.img`
+  width: 90%;
+`;
+
+export const SelectOptions = styled.select`
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding: 8px;
+  margin: 15px;
+`;
+
+export const InputForms = styled.input`
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding: 8px;
+  margin: 15px;
+`;
 
 export const ButtonsContainer = styled.div`
   display: flex;

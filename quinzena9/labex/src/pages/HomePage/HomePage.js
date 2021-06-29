@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <ContainerMain>
       <ContainerImage>
-        <img src={logo} alt={logo} />
+        <img src={logo} alt="logo" />
       </ContainerImage>
       <ContainerButtons>
         <ButtonController onClick={() => goToLoginPage(history)}>

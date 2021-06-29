@@ -5,6 +5,7 @@ import {
   goToApplicationFormPage,
 } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import useRequestData from "../../hooks/useRequestData";
 import {
   ButtonsContainer,
   ListScreenContainer,
@@ -14,6 +15,7 @@ import {
 
 const ListTripsPage = () => {
   const history = useHistory();
+  const [tripsData] = useRequestData("/trips", {});
 
   return (
     <ListScreenContainer>
@@ -26,7 +28,7 @@ const ListTripsPage = () => {
         </ButtonController>
       </ButtonsContainer>
       <TitleTrips>LISTA DE VIAGENS DISPONÍVEIS</TitleTrips>
-      <CardListTrip />
+      <CardListTrip tripsData={tripsData} />;
     </ListScreenContainer>
   );
 };
