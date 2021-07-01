@@ -1,12 +1,28 @@
 import React from "react";
-import { CardContainer, ContainerDetails, SeeDetails } from "./Styled";
+import {
+  CardContainer,
+  ContainerDetails,
+  ContainerImage,
+  IconDelete,
+  NameTrip,
+  DescriptionTrip,
+  SeeDetails,
+} from "./Styled";
 import { useHistory } from "react-router-dom";
 import { goToTripDetailsPage } from "../../routes/coordinator";
-import icon from "../../images/deleteicon.png";
+import { deleteTrip } from "../../services/request";
+import icon from "../../images/deleteicon.jpg";
 
 const AdminTripCard = (props) => {
   const tripsList = props.tripsData;
   const history = useHistory();
+
+  const onClickDelete = (e) => {
+    e.stopPropagation();
+    if (window.confirm(`Tem certeza que deseja deletar esta viagem?`)) {
+      // deleteTrip(id, getTrips);
+    }
+  };
 
   return (
     <CardContainer>
@@ -15,10 +31,17 @@ const AdminTripCard = (props) => {
           return (
             <>
               <ContainerDetails>
-                <p>{trip.name}</p>
-                <p>{trip.description}</p>
-                <SeeDetails onClick={() => goToTripDetailsPage(history)}>VER DETALHES</SeeDetails>
-                <img src={icon} src="Apagar Viagem" />
+                <NameTrip>{trip.name}</NameTrip>
+                <DescriptionTrip>{trip.description}</DescriptionTrip>
+                <SeeDetails
+                  onClick={() => goToTripDetailsPage(history, trip.id)}
+                >
+                  VER DETALHES
+                </SeeDetails>
+                <ContainerImage onClick={onClickDelete}>
+                  {" "}
+                  <IconDelete src={icon} alt="Apagar Viagem" />
+                </ContainerImage>
               </ContainerDetails>
             </>
           );

@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const ContainerMaincard = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5%;
+  grid-gap: 2%;
   width: 70vw;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    width: 50vw;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -14,7 +18,6 @@ export const CardContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
 `;
-
 
 export const ImagePlanet = styled.div`
   background: #fff9ee;

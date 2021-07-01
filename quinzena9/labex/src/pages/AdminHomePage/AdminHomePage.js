@@ -19,7 +19,6 @@ const AdminHomePage = () => {
 
   return (
     <AdminHomeScreenContainer>
-      <TitleListTrips>Painel Administrativo</TitleListTrips>
       <ButtonsContainer>
         <ButtonController onClick={() => goToCreateTripPage(history)}>
           Criar Viagem
@@ -28,6 +27,7 @@ const AdminHomePage = () => {
           Sair
         </ButtonController>
       </ButtonsContainer>
+      <TitleListTrips>Painel Administrativo</TitleListTrips>
       <AdminTripCard tripsData={tripsData} getTrips={getTrips} />{" "}
     </AdminHomeScreenContainer>
   );

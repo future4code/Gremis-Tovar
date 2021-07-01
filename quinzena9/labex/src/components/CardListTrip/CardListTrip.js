@@ -17,9 +17,9 @@ const CardListTrip = (props) => {
         tripsList.trips.map((trip) => {
           return (
             <>
-              <CardContainer key={trip.id}>
+              <CardContainer>
                 <ImagePlanet></ImagePlanet>
-                <DescriptionTrip>
+                <DescriptionTrip key={trip.id}>
                   <DescriptionTripH1>
                     <b>{trip.name}</b>
                   </DescriptionTripH1>
