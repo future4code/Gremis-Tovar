@@ -17,10 +17,9 @@ const AdminTripCard = (props) => {
   const tripsList = props.tripsData;
   const history = useHistory();
 
-  const onClickDelete = (e) => {
-    e.stopPropagation();
+  const onClickDelete = (id) => {
     if (window.confirm(`Tem certeza que deseja deletar esta viagem?`)) {
-      // deleteTrip(id, getTrips);
+      deleteTrip(id, props.getTrips);
     }
   };
 
@@ -38,7 +37,7 @@ const AdminTripCard = (props) => {
                 >
                   VER DETALHES
                 </SeeDetails>
-                <ContainerImage onClick={onClickDelete}>
+                <ContainerImage onClick={() => onClickDelete(trip.id)}>
                   {" "}
                   <IconDelete src={icon} alt="Apagar Viagem" />
                 </ContainerImage>

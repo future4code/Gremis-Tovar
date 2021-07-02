@@ -14,6 +14,13 @@ export const DescriptionTripH1 = styled.h1`
 `;
 
 export const ContainerForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BackgroundForm = styled.div`
   background: white;
   border-radius: 24px;
   width: 770px;

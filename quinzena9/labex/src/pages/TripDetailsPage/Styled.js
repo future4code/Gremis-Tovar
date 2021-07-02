@@ -4,6 +4,9 @@ export const TripContainerMain = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 export const DescriptionTripDetails = styled.p`
   border-bottom: 1px dashed white;
@@ -34,12 +37,11 @@ export const CandidatesPending = styled.div`
 `;
 
 export const CandidatesAproved = styled.div`
-  background: gray;
+  background: #B4A8A8;
   border-radius: 24px;
-  width: 450px;
-  height: 160px;
-  margin: 15px;
-  padding: 10px;
+  width: 500px;
+  height: 200px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;

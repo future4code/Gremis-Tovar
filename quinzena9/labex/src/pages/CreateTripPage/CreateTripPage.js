@@ -10,6 +10,7 @@ import {
   ApplicationFormContainer,
   DescriptionTripH1,
   ContainerForm,
+  BackgroundForm,
   FormMain,
   FormImage,
   SelectOptions,
@@ -47,73 +48,75 @@ const CreateTripPage = () => {
     <ApplicationFormContainer>
       <DescriptionTripH1>Criar viagem</DescriptionTripH1>
       <ContainerForm onSubmit={onClickCreate}>
-        <FormMain>
-          <SelectOptions
-            placeholder={"Planeta"}
-            name={"planet"}
-            defaultValue={""}
-            onChange={onChange}
-            required
-          >
-            <option value={""} disabled>
-              Escolha um Planeta
-            </option>
-            {planets.map((planet) => {
-              return (
-                <option value={planet} key={planet}>
-                  {planet}
-                </option>
-              );
-            })}
-          </SelectOptions>
-          <InputForms
-            placeholder={"Nome da Viagem"}
-            name={"name"}
-            value={form.name}
-            onChange={onChange}
-            pattern={"^.{5,}$"}
-            title={"O nome da viagem deve ter no mínimo 5 caracteres"}
-            required
-          />
+        <BackgroundForm>
+          <FormMain>
+            <SelectOptions
+              placeholder={"Planeta"}
+              name={"planet"}
+              defaultValue={""}
+              onChange={onChange}
+              required
+            >
+              <option value={""} disabled>
+                Escolha um Planeta
+              </option>
+              {planets.map((planet) => {
+                return (
+                  <option value={planet} key={planet}>
+                    {planet}
+                  </option>
+                );
+              })}
+            </SelectOptions>
+            <InputForms
+              placeholder={"Nome da Viagem"}
+              name={"name"}
+              value={form.name}
+              onChange={onChange}
+              pattern={"^.{5,}$"}
+              title={"O nome da viagem deve ter no mínimo 5 caracteres"}
+              required
+            />
 
-          <InputForms
-            placeholder={"Escolha uma data"}
-            type={"date"}
-            name={"date"}
-            value={form.date}
-            onChange={onChange}
-            min={stringToday}
-            required
-          />
-          <InputForms
-            placeholder={"Descrição da Viagem"}
-            name={"description"}
-            value={form.description}
-            onChange={onChange}
-            pattern={"^.{30,}$"}
-            title={"O nome deve ter no mínimo 30 caracteres"}
-            required
-          />
-          <InputForms
-            placeholder={"Número de dias"}
-            type={"number"}
-            name={"durationInDays"}
-            value={form.durationInDays}
-            onChange={onChange}
-            min={50}
-            required
-          />
-        </FormMain>
-        <FormImage>
-          <ImageAvatar src={avatar} alt="loading..." />
-        </FormImage>
-      </ContainerForm>{" "}
-      <ButtonsContainer>
-        <ButtonController onClick={() => goToAdminHomePage(history)}>
-          Voltar
-        </ButtonController>
-        <ButtonController type={"submit"}>Criar</ButtonController>
-      </ButtonsContainer>
+            <InputForms
+              placeholder={"Escolha uma data"}
+              type={"date"}
+              name={"date"}
+              value={form.date}
+              onChange={onChange}
+              min={stringToday}
+              required
+            />
+            <InputForms
+              placeholder={"Descrição da Viagem"}
+              name={"description"}
+              value={form.description}
+              onChange={onChange}
+              pattern={"^.{30,}$"}
+              title={"O nome deve ter no mínimo 30 caracteres"}
+              required
+            />
+            <InputForms
+              placeholder={"Número de dias"}
+              type={"number"}
+              name={"durationInDays"}
+              value={form.durationInDays}
+              onChange={onChange}
+              min={50}
+              required
+            />
+          </FormMain>
+          <FormImage>
+            <ImageAvatar src={avatar} alt="loading..." />
+          </FormImage>
+        </BackgroundForm>
+        <ButtonsContainer>
+          <ButtonController onClick={() => goToAdminHomePage(history)}>
+            Voltar
+          </ButtonController>
+          <ButtonController type={"submit"}>Criar</ButtonController>
+        </ButtonsContainer>
+      </ContainerForm>
     </ApplicationFormContainer>
   );
 };

@@ -51,7 +51,7 @@ npm run start
 
 ## ⚙️ Explicação da Aplicação
 
-O site é uma simulação de agência de viagens espaciais...
+O site é uma simulação de agência de viagens espaciais, onde se simula a aplicação de astronautas para viagens interespaciais é simulada e o admin vai ser o encarregado de aceitar ou rejeitar os candidatos, assim como também criar os viagens disponíveis.
 
 As requisições implementadas foram:
 
