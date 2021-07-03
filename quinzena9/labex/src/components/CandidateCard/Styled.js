@@ -11,7 +11,7 @@ export const ContainerButtons = styled.div`
 `;
 
 export const TableMain = styled.table`
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-collapse: collapse;
   font-size: 0.6rem;
 `;
@@ -21,20 +21,17 @@ export const TableMainTr = styled.tr`
 `;
 
 export const TableMainTh = styled.th`
-  border: 1px solid black;
-  border-collapse: collapse;
+  background-color: gray;
   width: 1vw;
   height: 1vh;
 `;
 export const TableMainThText = styled.th`
-  border: 1px solid black;
-  border-collapse: collapse;
+  background-color: gray;
   width: 35vw;
 `;
 
 export const TableMainTd = styled.td`
-  border: 1px solid black;
-  border-collapse: collapse;
+  background-color: white;
   width: 8vw;
 `;
 

@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const ContainerMaincard = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px;
   grid-gap: 2%;
-  width: 70vw;
-  @media (max-width: 500px) {
+  width: 90vw;
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    width: 50vw;
   }
 `;
 
@@ -26,6 +25,9 @@ export const ImagePlanet = styled.div`
   height: 167px;
   margin: 15px;
   padding: 10px;
+`;
+export const ImagePlanetImg = styled.img`
+  width: 100%;
 `;
 
 export const DescriptionTrip = styled.div`
