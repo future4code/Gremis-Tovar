@@ -54,15 +54,6 @@ cd `labefy` e rode:
 ```bash
 npm install
 ```
-
-```bash
-npm install styled-components
-```
-
-```bash
-npm install axios
-```
-
 para iniciar:
 
 ```bash
